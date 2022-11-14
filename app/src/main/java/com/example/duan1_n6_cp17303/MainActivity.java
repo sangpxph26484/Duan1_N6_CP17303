@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_Menu:
                         replaceFragment(fragmentMenu.newInstance());
                         break;
-                    case R.id.nav_donHang:
-                        replaceFragment(fragmentGioHang.newInstance());
-                        break;
-                    case R.id.nav_sanPham:
+                    case R.id.nav_ttcn:
                         replaceFragment(fragmentThongTinCn.newInstance());
                         break;
-                    case R.id.nav_them:
+                    case R.id.nav_thongbao:
                         replaceFragment(fragmentThongbao.newInstance());
+                        break;
+                    case R.id.nav_giohang:
+                        replaceFragment(fragmentGioHang.newInstance());
                         break;
                     default:
                         replaceFragment(fragmentMenu.newInstance());
