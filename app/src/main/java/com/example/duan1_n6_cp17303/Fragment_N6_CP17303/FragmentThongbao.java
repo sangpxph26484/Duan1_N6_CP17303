@@ -15,8 +15,8 @@ import com.example.duan1_n6_cp17303.R;
 
 public class FragmentThongbao extends Fragment {
 
-    public static FragmentMenu newInstance() {
-        FragmentMenu fragment = new FragmentMenu();
+    public static FragmentThongbao newInstance() {
+        FragmentThongbao fragment = new FragmentThongbao();
 
         return fragment;
     }
