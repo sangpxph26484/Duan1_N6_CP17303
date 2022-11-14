@@ -14,8 +14,8 @@ import com.example.duan1_n6_cp17303.R;
 
 public class FragmentGioHang extends Fragment {
 
-    public static FragmentMenu newInstance() {
-        FragmentMenu fragment = new FragmentMenu();
+    public static FragmentGioHang newInstance() {
+        FragmentGioHang fragment = new FragmentGioHang();
 
         return fragment;
     }
