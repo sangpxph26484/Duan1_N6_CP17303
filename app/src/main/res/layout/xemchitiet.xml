@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgr"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="horizontal"
+
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:padding="10dp"
+            android:id="@+id/img_back"
+            android:background="@drawable/bo_tron_2"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/bo_tron_2"
+            android:gravity="center"
+            android:text="Túi Xách Louis Vuitton Màu Nâu"
+            android:textColor="@color/white"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/tui"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="Túi sách"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:text="1.000.000 đ"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Là chiếc túi đến từ thương hiệu Louis Vuitton nổi tiếng.Túi mang kiểu dáng nhỏ nhắn,thời trang và được làm từ chất liệu cao cấp được nhiều người yêu thích và săn đón
+.Nội thất bao gồm 2 ngăn lớn và khóa zip ở giữa,một ngăn khóa sau bên ngoài"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+</LinearLayout>

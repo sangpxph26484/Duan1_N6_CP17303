@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bgr"
+    >
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:src="@drawable/img"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng Ký"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="#FF7A22"
+        android:layout_marginBottom="15dp"
+        />
+    <EditText
+
+        android:id="@+id/ed_hoTen"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/ic_baseline_account_circle_24"
+        android:hint="Họ và tên"
+        android:background="@drawable/bo_tron"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:id="@+id/ed_sdt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Nhập SĐT/CCCD"
+        android:drawableStart="@drawable/ic_baseline_phone_24"
+        android:background="@drawable/bo_tron"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:id="@+id/ed_mk"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Nhập mật khẩu"
+        android:drawableStart="@drawable/ic_baseline_info_24"
+        android:background="@drawable/bo_tron"
+        android:layout_marginBottom="20dp"
+        android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:id="@+id/ed_laimk"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Nhập lại mật khẩu"
+        android:drawableStart="@drawable/ic_baseline_info_24"
+        android:background="@drawable/bo_tron"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"
+        android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+        />
+    <EditText
+        android:id="@+id/ed_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Email"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:background="@drawable/bo_tron"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"
+        />
+    <EditText
+        android:id="@+id/ed_diaChi"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Địa chỉ"
+        android:drawableStart="@drawable/ic_baseline_home_24"
+        android:background="@drawable/bo_tron"
+        android:layout_marginBottom="20dp"
+        android:drawablePadding="10dp"
+        />
+    <Button
+        android:id="@+id/btn_dangkyuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bo_tron_1"
+        android:backgroundTint="#31BAF8"
+        android:text="Đăng ký"
+        />
+</LinearLayout>
