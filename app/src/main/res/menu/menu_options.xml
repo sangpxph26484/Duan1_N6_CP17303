@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="Thông tin cá nhân" android:id="@+id/nav_thongtincanhan"
+        android:icon="@drawable/ic_home"
+        app:showAsAction="always"/>
+    <item android:title="Thông báo" android:id="@+id/nav_thongbao"
+        android:icon="@drawable/ic_thongbao"
+        app:showAsAction="always"/>
+    <item android:title="Giỏ hàng" android:id="@+id/nav_giohang"
+        android:icon="@drawable/ic_giohang"
+        app:showAsAction="always"/>
+    <item android:title="Thêm" android:id="@+id/nav_them"
+        android:icon="@drawable/ic_them"
+        app:showAsAction="always"/>
+</menu>
