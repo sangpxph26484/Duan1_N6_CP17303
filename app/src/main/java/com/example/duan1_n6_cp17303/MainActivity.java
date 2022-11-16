@@ -1,5 +1,7 @@
 package com.example.duan1_n6_cp17303;
 
+
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -46,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
                         replaceFragment(fragmentMenu.newInstance());
                         break;
                     case R.id.nav_ttcn:
-                        replaceFragment(fragmentGioHang.newInstance());
-                        break;
-                    case R.id.nav_thongbao:
                         replaceFragment(fragmentThongTinCn.newInstance());
                         break;
-                    case R.id.nav_giohang:
+                    case R.id.nav_thongbao:
                         replaceFragment(fragmentThongbao.newInstance());
+                        break;
+                    case R.id.nav_giohang:
+                        replaceFragment(fragmentGioHang.newInstance());
                         break;
                     default:
                         replaceFragment(fragmentMenu.newInstance());
