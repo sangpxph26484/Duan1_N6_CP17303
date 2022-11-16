@@ -1,37 +1,80 @@
 package com.example.duan1_n6_cp17303;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentGioHang;
+import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentMenu;
+import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThongTinCn;
+import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThongbao;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
 public class MainActivity extends AppCompatActivity {
+
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        fragmentManager = getSupportFragmentManager();
+        FragmentMenu fragmentMenu = new FragmentMenu();
+        FragmentGioHang fragmentGioHang= new FragmentGioHang();
+        FragmentThongTinCn fragmentThongTinCn= new FragmentThongTinCn();
+        FragmentThongbao fragmentThongbao = new FragmentThongbao();
+
+        fragmentManager.beginTransaction().add(R.id.container_frag,fragmentMenu).commit();
+
+        BottomNavigationView bottomNavigationView;
+        bottomNavigationView = findViewById(R.id.bottom_nav_bar);
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    case R.id.nav_Menu:
+                        replaceFragment(fragmentMenu.newInstance());
+                        break;
+                    case R.id.nav_ttcn:
+                        replaceFragment(fragmentGioHang.newInstance());
+                        break;
+                    case R.id.nav_thongbao:
+                        replaceFragment(fragmentThongTinCn.newInstance());
+                        break;
+                    case R.id.nav_giohang:
+                        replaceFragment(fragmentThongbao.newInstance());
+                        break;
+                    default:
+                        replaceFragment(fragmentMenu.newInstance());
+                        break;
+                }
+
+                return true;
+            }
+        });
+
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_options, menu);
-        return true;
+    public void replaceFragment(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container_frag,fragment);
+        transaction.commit();
     }
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle item selection
-//        switch (item.getItemId()) {
-//            case R.id.nav_thongtincanhan:
-////                FragmentThongTin();
-//                return true;
-////            case R.id.help:
-////                showHelp();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
+    protected void reloadFragment(String TAG){
+        Fragment frg = null;
+        frg = this.getSupportFragmentManager().findFragmentByTag(TAG);
+        FragmentTransaction ft =this.getSupportFragmentManager().beginTransaction();
+        ft.detach(frg);
+        ft.attach(frg);
+        ft.commit();
+    }
 }

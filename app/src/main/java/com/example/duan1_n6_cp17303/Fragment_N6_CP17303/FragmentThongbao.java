@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.example.duan1_n6_cp17303.R;
 
 
-public class FragmentThongTinCaNhan extends Fragment {
+public class FragmentThongbao extends Fragment {
 
 
 
@@ -28,7 +28,7 @@ public class FragmentThongTinCaNhan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_thong_tin_ca_nhan, container, false);
+        return inflater.inflate(R.layout.fragment_thongbao, container, false);
     }
 
     @Override

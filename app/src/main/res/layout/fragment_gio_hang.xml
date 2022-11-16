@@ -14,7 +14,7 @@
         android:text="Giỏ Hàng"
         android:layout_gravity="center"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="31dp"
         android:textColor="#4CAF50"/>
     <ListView
         android:layout_width="match_parent"
