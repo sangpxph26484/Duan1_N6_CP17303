@@ -24,7 +24,7 @@ public class FragmentMenu extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        String a;
         return inflater.inflate(R.layout.fragment_menu, container, false);
     }
 

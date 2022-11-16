@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Thanh Toán"
         android:layout_gravity="center"
-        android:textSize="30dp"
+        android:textSize="31dp"
         android:textColor="#4CAF50"
         android:layout_margin="10dp"
         android:textStyle="bold"

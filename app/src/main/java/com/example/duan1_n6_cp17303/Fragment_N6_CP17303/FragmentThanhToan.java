@@ -18,7 +18,7 @@ public class FragmentThanhToan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        String a;
+
         return inflater.inflate(R.layout.fragment_thanh_toan, container, false);
     }
 }
