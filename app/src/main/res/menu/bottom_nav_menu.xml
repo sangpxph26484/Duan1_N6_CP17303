@@ -8,7 +8,7 @@
     <item android:title="Thông Tin Cá Nhân" android:id="@+id/nav_ttcn"
         android:icon="@drawable/ic_baseline_assignment_ind_24"
         />
-    <item android:title="Thông Báo" android:id="@+id/nav_thongbao"
+    <item android:title="Liên hệ, Đánh " android:id="@+id/nav_them"
         android:icon="@drawable/ic_baseline_notifications_24"
         />
     <item android:title="Giỏ Hàng" android:id="@+id/nav_giohang"

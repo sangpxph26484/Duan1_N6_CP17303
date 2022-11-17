@@ -13,8 +13,8 @@ import android.view.MenuItem;
 
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentGioHang;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentMenu;
+import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThem;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThongTinCn;
-import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThongbao;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentMenu fragmentMenu = new FragmentMenu();
         FragmentGioHang fragmentGioHang= new FragmentGioHang();
         FragmentThongTinCn fragmentThongTinCn= new FragmentThongTinCn();
-        FragmentThongbao fragmentThongbao = new FragmentThongbao();
+        FragmentThem fragmentThem = new FragmentThem();
 
         fragmentManager.beginTransaction().add(R.id.container_frag,fragmentMenu).commit();
 
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_ttcn:
                         replaceFragment(fragmentThongTinCn.newInstance());
                         break;
-                    case R.id.nav_thongbao:
-                        replaceFragment(fragmentThongbao.newInstance());
+                    case R.id.nav_them:
+                        replaceFragment(fragmentThem.newInstance());
                         break;
                     case R.id.nav_giohang:
                         replaceFragment(fragmentGioHang.newInstance());

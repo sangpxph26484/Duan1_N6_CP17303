@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+
     tools:context=".Fragment_N6_CP17303.FragmentThanhToan">
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
         android:text="Thanh Toán"
-        android:layout_gravity="center"
+        android:gravity="center"
         android:textSize="31dp"
-        android:textColor="#4CAF50"
-        android:layout_margin="10dp"
+        android:background="@color/colorActionbar"
+        android:textColor="@color/white"
         android:textStyle="bold"
 
         />
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Thanh Toán"
-        android:backgroundTint="#4CAF50"
+        android:backgroundTint="#77B0CA"
         android:layout_margin="20dp"
         />
 </LinearLayout>

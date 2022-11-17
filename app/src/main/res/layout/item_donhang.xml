@@ -36,7 +36,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="Tên sản phẩm:"
                 android:padding="8dp"
                 android:textColor="@color/black"
@@ -53,7 +52,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Thông Tin:"
+                android:text="Tên Khách Hàng:"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textSize="12sp"
@@ -61,7 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Số Lượng:"
+                android:text="Thời Gian:"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textSize="12sp"
