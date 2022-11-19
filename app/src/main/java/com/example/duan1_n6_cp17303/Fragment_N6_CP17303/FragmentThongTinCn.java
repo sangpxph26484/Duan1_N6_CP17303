@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.example.duan1_n6_cp17303.R;
 
 public class FragmentThongTinCn extends Fragment {
-
+String       a;
     public static FragmentThongTinCn newInstance() {
         FragmentThongTinCn fragment = new FragmentThongTinCn();
 
