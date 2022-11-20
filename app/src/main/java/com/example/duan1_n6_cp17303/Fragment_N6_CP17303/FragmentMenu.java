@@ -13,7 +13,7 @@ import com.example.duan1_n6_cp17303.R;
 
 
 public class FragmentMenu extends Fragment {
-
+    String a = "aa";
     public static FragmentMenu newInstance() {
         FragmentMenu fragment = new FragmentMenu();
 
