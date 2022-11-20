@@ -127,11 +127,22 @@
         android:layout_height="100dp"
         android:gravity="center">
         <Button
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Đăng xuất"
+            android:text="Đăng ký"
+            android:layout_margin="20dp"
             android:backgroundTint="#3A77A8"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:text="Đăng nhập "
+
+            android:backgroundTint="#3A77A8"
+            />
+
     </LinearLayout>
 </LinearLayout>
