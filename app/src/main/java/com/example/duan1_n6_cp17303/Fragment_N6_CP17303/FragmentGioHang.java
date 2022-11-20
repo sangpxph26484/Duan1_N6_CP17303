@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.duan1_n6_cp17303.R;
 
 public class FragmentGioHang extends Fragment {
+    String a = "aa";
     public static FragmentGioHang newInstance() {
         FragmentGioHang fragment = new FragmentGioHang();
 

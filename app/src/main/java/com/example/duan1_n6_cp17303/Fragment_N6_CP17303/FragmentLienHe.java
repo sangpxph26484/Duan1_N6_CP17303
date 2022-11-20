@@ -14,7 +14,7 @@ import com.example.duan1_n6_cp17303.R;
 
 
 public class FragmentLienHe extends Fragment {
-
+    String a = "aa";
 
 
     @Nullable

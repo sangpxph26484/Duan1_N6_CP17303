@@ -12,7 +12,7 @@ import com.example.duan1_n6_cp17303.R;
 
 
 public class FragmentThanhToan extends Fragment {
-
+    String a = "aa";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
