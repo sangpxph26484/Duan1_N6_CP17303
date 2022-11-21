@@ -57,10 +57,10 @@ public class SanPhamAdapter extends BaseAdapter {
 
         SanPhamDTO sanPhamDTO =list.get(position);
         Glide.with(view.getContext()).load(Uri.parse(sanPhamDTO.getAnhsanpham())).into(imgItemsp);
-        txtItemtensp.setText("Tên Sản Phẩm: "+ sanPhamDTO.getTensanpham());
-        txtItemgiasp.setText("Giá Tiền:"+ sanPhamDTO.getGiatien()+"đ");
-        txtItemthongtinsp.setText ("Thông Tin: "+ sanPhamDTO.getThongtin());
-        txtItemsoluongsp.setText("Số Lượng: "+sanPhamDTO.getSoluong()+"");
+        txtItemtensp.setText( sanPhamDTO.getTensanpham());
+        txtItemgiasp.setText( sanPhamDTO.getGiatien()+"đ");
+        txtItemthongtinsp.setText (sanPhamDTO.getThongtin());
+        txtItemsoluongsp.setText(sanPhamDTO.getSoluong()+"");
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
