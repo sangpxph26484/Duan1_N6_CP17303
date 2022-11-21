@@ -13,14 +13,14 @@ import android.view.ViewGroup;
 import com.example.duan1_n6_cp17303.R;
 
 
-public class FragmentDanhGia extends Fragment {
+public class FragmentBinhLuan extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_danh_gia, container, false);
+        return inflater.inflate(R.layout.fragment_binh_luan, container, false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

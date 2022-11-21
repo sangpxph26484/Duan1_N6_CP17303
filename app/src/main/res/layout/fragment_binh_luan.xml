@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".Fragment_N6_CP17303.FragmentDanhGia">
+    tools:context=".Fragment_N6_CP17303.FragmentBinhLuan">
 
     <LinearLayout
         android:id="@+id/ln_danhgia"
