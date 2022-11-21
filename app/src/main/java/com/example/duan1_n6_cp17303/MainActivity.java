@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i<listCat.size(); i++){
             KhachHangDTO objCat = listCat.get(i);
 
-            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getTencuahang());
+            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getTenkhachhang());
 
         }
 

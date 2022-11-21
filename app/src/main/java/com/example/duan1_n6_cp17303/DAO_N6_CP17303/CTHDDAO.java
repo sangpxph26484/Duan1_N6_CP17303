@@ -40,8 +40,8 @@ public class CTHDDAO {
                     cthddto.setIdcthd(resultSet.getInt("ID"));
                     cthddto.setIdsanpham(resultSet.getInt("ID"));
                     cthddto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
-                    cthddto.setSoluong(resultSet.getString("SOLUONG"));
-                    cthddto.setTongtien(resultSet.getString("TONGTIEN"));
+                    cthddto.setSoluong(resultSet.getInt("SOLUONG"));
+                    cthddto.setTongtien(resultSet.getFloat("TONGTIEN"));
 
 
 

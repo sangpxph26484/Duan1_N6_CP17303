@@ -39,8 +39,8 @@ public class SanPhamDAO {
                     SanPhamDTO sanPhamDTO = new SanPhamDTO();
                     sanPhamDTO.setIdsanpham(resultSet.getInt("ID"));
                     sanPhamDTO.setTensanpham(resultSet.getString("TENSANPHAM"));
-                    sanPhamDTO.setGiatien(resultSet.getString("GIATIEN"));
-                    sanPhamDTO.setSoluong(resultSet.getString("SOLUONG"));
+                    sanPhamDTO.setGiatien(resultSet.getFloat("GIATIEN"));
+                    sanPhamDTO.setSoluong(resultSet.getInt("SOLUONG"));
                     sanPhamDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
                     sanPhamDTO.setThongtin(resultSet.getString("THONGTIN"));
                     sanPhamDTO.setIdbinhluan(resultSet.getInt("ID"));

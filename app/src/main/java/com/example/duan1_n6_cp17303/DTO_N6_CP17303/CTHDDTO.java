@@ -4,8 +4,8 @@ public class CTHDDTO {
     int idcthd;
     int idsanpham;
     String tenkhachhang;
-    String soluong;
-    String tongtien;
+    int soluong;
+    Float tongtien;
 
     public int getIdcthd() {
         return idcthd;
@@ -31,22 +31,19 @@ public class CTHDDTO {
         this.tenkhachhang = tenkhachhang;
     }
 
-    public String getSoluong() {
+    public int getSoluong() {
         return soluong;
     }
 
-    public void setSoluong(String soluong) {
+    public void setSoluong(int soluong) {
         this.soluong = soluong;
     }
 
-    public String getTongtien() {
+    public Float getTongtien() {
         return tongtien;
     }
 
-    public void setTongtien(String tongtien) {
+    public void setTongtien(Float tongtien) {
         this.tongtien = tongtien;
-    }
-
-    public CTHDDTO() {
     }
 }
