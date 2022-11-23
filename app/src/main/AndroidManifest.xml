@@ -36,9 +36,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ManHinhOutActivity"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
     </application>
