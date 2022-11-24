@@ -2,9 +2,10 @@ package com.example.duan1_n6_cp17303.DAO_N6_CP17303;
 
 import android.util.Log;
 
+import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.PhieuGiamGiaDTO;
-import com.example.duan1_n6_cp17303.DbHelper_N6_CP17303.MyDBHelper;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,7 +38,7 @@ public class PhieuGiamGiaDAO {
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
                     PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaDTO();
-                    phieuGiamGiaDTO.setIdphieugiamgia(resultSet.getInt("PHIEUGIAMGIA"));
+                    phieuGiamGiaDTO.setIdphieugiamgia(resultSet.getInt("ID"));
                     phieuGiamGiaDTO.setMagiamgia(resultSet.getString("MAGIAMGIA"));
                     phieuGiamGiaDTO.setPhantram(resultSet.getString("PHANTRAM"));
 

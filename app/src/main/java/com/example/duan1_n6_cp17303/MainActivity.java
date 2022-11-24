@@ -14,8 +14,9 @@ import android.view.MenuItem;
 
 import com.example.duan1_n6_cp17303.DAO_N6_CP17303.KhachHangDAO;
 
+import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
-import com.example.duan1_n6_cp17303.DbHelper_N6_CP17303.MyDBHelper;
+
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentGioHang;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentMenu;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThem;

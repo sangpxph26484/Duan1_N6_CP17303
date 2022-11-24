@@ -2,9 +2,10 @@ package com.example.duan1_n6_cp17303.DAO_N6_CP17303;
 
 import android.util.Log;
 
+import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.BinhLuanDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
-import com.example.duan1_n6_cp17303.DbHelper_N6_CP17303.MyDBHelper;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

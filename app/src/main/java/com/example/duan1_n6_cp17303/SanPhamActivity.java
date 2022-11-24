@@ -2,8 +2,10 @@ package com.example.duan1_n6_cp17303;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,7 +20,7 @@ import java.util.List;
 public class SanPhamActivity extends AppCompatActivity {
     TextView tensp, giasp, mota, botsp, themsp, soluongsp;
     Button btnthem;
-    ImageView imgsanpham;
+    ImageView imgsanpham, imgback;
     SanPhamDAO dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class SanPhamActivity extends AppCompatActivity {
         giasp = findViewById(R.id.txtGiasanpham);
         mota = findViewById(R.id.txtMotachitiet);
         imgsanpham = findViewById(R.id.imgSanpham);
+        imgback = findViewById(R.id.imgBackctsp);
 
         soluongsp = findViewById(R.id.txtSoluongsp);
         botsp = findViewById(R.id.txtBotsanpham);
@@ -49,6 +52,14 @@ public class SanPhamActivity extends AppCompatActivity {
         tensp.setText("Tên Sản Phẩm: "+sanPhamDTO.getTensanpham());
         giasp.setText("Giá: "+sanPhamDTO.getGiatien());
         mota.setText(sanPhamDTO.getThongtin());
+
+        imgback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SanPhamActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

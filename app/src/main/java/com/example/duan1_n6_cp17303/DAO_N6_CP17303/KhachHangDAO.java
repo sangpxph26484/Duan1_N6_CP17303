@@ -3,8 +3,9 @@ package com.example.duan1_n6_cp17303.DAO_N6_CP17303;
 import android.util.Log;
 
 
+import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
-import com.example.duan1_n6_cp17303.DbHelper_N6_CP17303.MyDBHelper;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,9 +43,9 @@ public class KhachHangDAO {
                     khachHangDTO.setPhone(resultSet.getString("PHONE"));
                     khachHangDTO.setEmail(resultSet.getString("EMAIL"));
                     khachHangDTO.setDiachi(resultSet.getString("DIACHI"));
-                    khachHangDTO.setIdhoadon(resultSet.getInt("ID"));
-                    khachHangDTO.setIdphieugiamgia(resultSet.getInt("ID"));
-                    khachHangDTO.setIdlienhe(resultSet.getInt("ID"));
+                    khachHangDTO.setIdhoadon(resultSet.getInt("IDHOADON"));
+                    khachHangDTO.setIdphieugiamgia(resultSet.getInt("IDPHIEUGIAMGIA"));
+                    khachHangDTO.setIdlienhe(resultSet.getInt("IDLIENHE"));
 
 
                     listCat.add(khachHangDTO);
