@@ -61,7 +61,7 @@ public class KhachHangDAO {
 
         return  listCat;
     }
-    public void insertRow (KhachHangDTO khachHangDTO){
+    public boolean insertRow(KhachHangDTO khachHangDTO) {
 
         try {
             if (this.objConn != null) {
@@ -83,10 +83,11 @@ public class KhachHangDAO {
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
-
+            return true;
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
+            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu ");
             e.printStackTrace();
+            return false;
         }
     }
 

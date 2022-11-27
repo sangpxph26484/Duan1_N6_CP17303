@@ -25,7 +25,7 @@ public class ManHinhChaoActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(ManHinhChaoActivity.this, MainActivity.class);
+                Intent intent = new Intent(ManHinhChaoActivity.this,DangNhapActivity.class);
                 startActivity(intent);
             }
         }, 3000);

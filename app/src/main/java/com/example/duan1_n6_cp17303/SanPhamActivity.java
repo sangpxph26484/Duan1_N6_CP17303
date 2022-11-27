@@ -1,5 +1,6 @@
 package com.example.duan1_n6_cp17303;
 
+import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,7 @@ import com.example.duan1_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.LongToDoubleFunction;
 
 public class SanPhamActivity extends AppCompatActivity {
     TextView tensp, giasp, mota, botsp, themsp, soluongsp;
@@ -58,6 +60,9 @@ public class SanPhamActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SanPhamActivity.this, MainActivity.class);
                 startActivity(intent);
+
+
+
             }
         });
 
