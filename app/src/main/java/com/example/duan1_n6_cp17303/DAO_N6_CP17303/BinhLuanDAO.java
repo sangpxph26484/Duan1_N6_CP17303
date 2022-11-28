@@ -90,7 +90,7 @@ public class BinhLuanDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE BINHLUAN SET name= N'" + binhLuanDTO.getBinhluan()+ "'WHERE id = " + binhLuanDTO.getIdbinhluan();
+                String sqlUpdate = "UPDATE BINHLUAN SET BINHLUAN= N'" + binhLuanDTO.getBinhluan()+ "'WHERE id = " + binhLuanDTO.getIdbinhluan();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -104,6 +104,27 @@ public class BinhLuanDAO {
 
         } catch (Exception e) {
             Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteRow(BinhLuanDTO binhLuanDTO){
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "DELETE FROM BINHLUAN WHERE id = " + binhLuanDTO.getIdbinhluan();
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Delete");
+
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
             e.printStackTrace();
         }
     }
