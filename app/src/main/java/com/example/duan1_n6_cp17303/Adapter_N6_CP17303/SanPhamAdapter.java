@@ -1,6 +1,7 @@
 package com.example.duan1_n6_cp17303.Adapter_N6_CP17303;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +11,20 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
+import com.example.duan1_n6_cp17303.MainActivity;
 import com.example.duan1_n6_cp17303.R;
+import com.example.duan1_n6_cp17303.SanPhamActivity;
 
 import java.util.List;
 
 public class SanPhamAdapter extends BaseAdapter {
     List<SanPhamDTO> list;
     Context context;
-    onclicksanpham onclicksanpham;
-    public SanPhamAdapter(List<SanPhamDTO> list, Context context,onclicksanpham onclicksanpham) {
+
+    public SanPhamAdapter(List<SanPhamDTO> list, Context context) {
         this.list = list;
         this.context = context;
-        this.onclicksanpham = onclicksanpham;
+
     }
 
     @Override
@@ -64,12 +67,14 @@ public class SanPhamAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onclicksanpham.hihi(v, sanPhamDTO.getIdsanpham());
+                Intent intent = new Intent(context, SanPhamActivity.class);
+                intent.putExtra( "chitiet", sanPhamDTO);
+                intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
             }
         });
         return view;
     }
-    public interface onclicksanpham{
-        void hihi(View view,int id);
-    }
+
 }

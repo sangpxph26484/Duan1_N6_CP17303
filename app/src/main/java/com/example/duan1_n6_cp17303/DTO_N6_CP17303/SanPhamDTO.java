@@ -1,6 +1,8 @@
 package com.example.duan1_n6_cp17303.DTO_N6_CP17303;
 
-public class SanPhamDTO {
+import java.io.Serializable;
+
+public class SanPhamDTO implements Serializable {
     int idsanpham;
     String tensanpham;
     Float giatien;

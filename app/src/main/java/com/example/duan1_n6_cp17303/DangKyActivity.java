@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,7 +33,14 @@ public class DangKyActivity extends AppCompatActivity {
 
         TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
         KhachHangDAO khachHangDAO = new KhachHangDAO();
+        ImageView img_backdky = findViewById(R.id.imgBackdangky);
 
+        img_backdky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         btn_dk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

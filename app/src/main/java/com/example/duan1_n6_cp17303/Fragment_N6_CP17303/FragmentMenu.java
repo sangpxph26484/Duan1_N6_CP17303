@@ -19,7 +19,6 @@ import com.example.duan1_n6_cp17303.SanPhamActivity;
 
 
 public class FragmentMenu extends Fragment {
-    String a = "aa";
     public static FragmentMenu newInstance() {
         FragmentMenu fragment = new FragmentMenu();
 
@@ -47,14 +46,7 @@ public class FragmentMenu extends Fragment {
     }
     public void showdata(){
         dao = new SanPhamDAO();
-        adapter = new SanPhamAdapter(dao.getAll(), getContext(), new SanPhamAdapter.onclicksanpham() {
-            @Override
-            public void hihi(View view, int id) {
-                Intent intent = new Intent(getContext(), SanPhamActivity.class);
-                intent.putExtra("id_sp", id);
-                startActivity(intent);
-            }
-        });
+        adapter = new SanPhamAdapter(dao.getAll(), getContext());
 
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();

@@ -3,9 +3,8 @@ package com.example.duan1_n6_cp17303.DAO_N6_CP17303;
 import android.util.Log;
 
 import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
-import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
-import com.example.duan1_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
-
+import com.example.duan1_n6_cp17303.DTO_N6_CP17303.CTHDDTO;
+import com.example.duan1_n6_cp17303.DTO_N6_CP17303.GioHangDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,22 +13,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SanPhamDAO {
-
+public class GioHangDAO {
     Connection objConn;
-    public SanPhamDAO(){
+    public GioHangDAO(){
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public List<SanPhamDTO> getAll(){
-        List<SanPhamDTO> listCat = new ArrayList<SanPhamDTO>();
+    public List<GioHangDTO> getAll(){
+        List<GioHangDTO> listCat = new ArrayList<GioHangDTO>();
 
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "SELECT * FROM SANPHAM ";
+                String sqlQuery = "SELECT * FROM GIOHANG ";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -37,18 +35,17 @@ public class SanPhamDAO {
 
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
-                    SanPhamDTO sanPhamDTO = new SanPhamDTO();
-                    sanPhamDTO.setIdsanpham(resultSet.getInt("ID"));
-                    sanPhamDTO.setTensanpham(resultSet.getString("TENSANPHAM"));
-                    sanPhamDTO.setGiatien(resultSet.getFloat("GIATIEN"));
-                    sanPhamDTO.setSoluong(resultSet.getInt("SOLUONG"));
-                    sanPhamDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
-                    sanPhamDTO.setThongtin(resultSet.getString("THONGTIN"));
-                    sanPhamDTO.setIdbinhluan(resultSet.getInt("IDBINHLUAN"));
+                    GioHangDTO gioHangDTO = new GioHangDTO();
+                    gioHangDTO.setIdgiohang(resultSet.getInt("ID"));
+                    gioHangDTO.setTensanpham(resultSet.getString("TENSANPHAM"));
+                    gioHangDTO.setGiatien(resultSet.getFloat("GIATIEN"));
+                    gioHangDTO.setSoluong(resultSet.getInt("SOLUONG"));
+                    gioHangDTO.setImg(resultSet.getString("ANHSANPHAM"));
+                    gioHangDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
 
 
-                    listCat.add(sanPhamDTO);
+                    listCat.add(gioHangDTO);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
@@ -61,12 +58,12 @@ public class SanPhamDAO {
 
         return  listCat;
     }
-    public void insertRow (SanPhamDTO sanPhamDTO){
+    public void insertRow (GioHangDTO gioHangDTO){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO SANPHAM(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM,THONGTIN) VALUES (N'" + sanPhamDTO.getTensanpham()+"','"+sanPhamDTO.getGiatien() +"','"+sanPhamDTO.getSoluong()+"','"+sanPhamDTO.getAnhsanpham()+"',N'"+ sanPhamDTO.getThongtin() +"')";
+                String insertSQL = "INSERT INTO GIOHANG(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM) VALUES (N'" +gioHangDTO.getTensanpham() + "','"+gioHangDTO.getGiatien()+"','"+gioHangDTO.getSoluong()+"'+'"+gioHangDTO.getImg()+"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -90,30 +87,24 @@ public class SanPhamDAO {
         }
     }
 
-    public void updateRow(SanPhamDTO sanPhamDTO){
+    public void deleteRow(GioHangDTO gioHangDTO){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE SANPHAM SET name= N'" + sanPhamDTO.getTensanpham()+"','"+ sanPhamDTO.getGiatien()+"','"+ sanPhamDTO.getSoluong()+"','"+ sanPhamDTO.getAnhsanpham()+"','"+ sanPhamDTO.getThongtin() + "'WHERE id = " + sanPhamDTO.getIdsanpham();
-
+                String sqlUpdate = "DELETE FROM GIOHANG WHERE id = " + gioHangDTO.getIdgiohang();
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
                 stmt.execute(); // thực thi câu lệnh SQL
 
-                Log.d("zzzzz", "updateRow: finish Update");
-
+                Log.d("zzzzz", "updateRow: finish Delete");
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
             e.printStackTrace();
         }
-    }
-    public void tinhTongTien(SanPhamDTO sanPhamDTO){
-        long tongtien = 0;
-//        for (int i = 0; i<)
     }
 }

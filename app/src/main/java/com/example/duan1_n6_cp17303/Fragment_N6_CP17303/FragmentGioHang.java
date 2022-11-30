@@ -4,16 +4,22 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.duan1_n6_cp17303.R;
 
 public class FragmentGioHang extends Fragment {
-    String a = "aa";
+
+
     public static FragmentGioHang newInstance() {
         FragmentGioHang fragment = new FragmentGioHang();
 
@@ -28,5 +34,6 @@ public class FragmentGioHang extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
     }
 }

@@ -20,10 +20,12 @@ import java.util.List;
 import java.util.function.LongToDoubleFunction;
 
 public class SanPhamActivity extends AppCompatActivity {
-    TextView tensp, giasp, mota, botsp, themsp, soluongsp;
-    Button btnthem;
+    TextView tensp, giasp, mota, txtsoluongsp;
+    Button btnthem, btnbotsp, btnthemsp ;
     ImageView imgsanpham, imgback;
     SanPhamDAO dao;
+    int count = 0;
+    SanPhamDTO sanPhamDTO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,36 +38,49 @@ public class SanPhamActivity extends AppCompatActivity {
         imgsanpham = findViewById(R.id.imgSanpham);
         imgback = findViewById(R.id.imgBackctsp);
 
-        soluongsp = findViewById(R.id.txtSoluongsp);
-        botsp = findViewById(R.id.txtBotsanpham);
-        themsp = findViewById(R.id.txtThemsanpham);
+        txtsoluongsp = findViewById(R.id.txtSoluongsp);
+        btnbotsp = findViewById(R.id.btnBotsanpham);
+        btnthemsp = findViewById(R.id.btnThemsanpham);
 
         btnthem = findViewById(R.id.btnThemvaogiohang);
 
 
         dao = new SanPhamDAO();
+        sanPhamDTO = (SanPhamDTO)  getIntent().getSerializableExtra(  "chitiet");
 
-        int idSP = getIntent().getExtras().getInt("id_sp") -1;
 
-        List<SanPhamDTO> sanPhamDTOS = dao.getAll();
-        SanPhamDTO sanPhamDTO = sanPhamDTOS.get(idSP);
 
         Glide.with(this).load(sanPhamDTO.getAnhsanpham()).into(imgsanpham);
         tensp.setText("Tên Sản Phẩm: "+sanPhamDTO.getTensanpham());
         giasp.setText("Giá: "+sanPhamDTO.getGiatien());
         mota.setText(sanPhamDTO.getThongtin());
 
+        txtsoluongsp.setText(sanPhamDTO.getSoluong() + "");
+
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SanPhamActivity.this, MainActivity.class);
-                startActivity(intent);
+                onBackPressed();
 
 
 
             }
         });
+        txtsoluongsp = findViewById(R.id.txtSoluongsp);
 
 
+
+    }
+    public void increment(View view){
+        count ++;
+        txtsoluongsp.setText(""+count);
+
+        giasp.setText("Giá: "+sanPhamDTO.getGiatien() * count +"");
+    }
+    public void decrement(View view){
+        if (count <= 0) count = 0;
+        else count --;
+        txtsoluongsp.setText(""+count);
+        giasp.setText("Giá: "+sanPhamDTO.getGiatien() * count +"");
     }
 }
