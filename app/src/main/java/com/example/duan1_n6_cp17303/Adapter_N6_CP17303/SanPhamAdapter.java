@@ -56,14 +56,12 @@ public class SanPhamAdapter extends BaseAdapter {
         TextView txtItemtensp = view.findViewById(R.id.txtItemtensp);
         TextView txtItemgiasp = view.findViewById(R.id.txtItemgiasp);
         TextView txtItemthongtinsp = view.findViewById(R.id.txtItemthongtinsp);
-        TextView txtItemsoluongsp = view.findViewById(R.id.txtItemsoluongsp);
 
         SanPhamDTO sanPhamDTO =list.get(position);
         Glide.with(view.getContext()).load(Uri.parse(sanPhamDTO.getAnhsanpham())).into(imgItemsp);
         txtItemtensp.setText( sanPhamDTO.getTensanpham());
         txtItemgiasp.setText( sanPhamDTO.getGiatien()+"đ");
         txtItemthongtinsp.setText (sanPhamDTO.getThongtin());
-        txtItemsoluongsp.setText(sanPhamDTO.getSoluong()+"");
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

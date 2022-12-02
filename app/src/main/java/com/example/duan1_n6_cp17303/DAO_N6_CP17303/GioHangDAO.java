@@ -58,12 +58,12 @@ public class GioHangDAO {
 
         return  listCat;
     }
-    public void insertRow (GioHangDTO gioHangDTO){
+    public boolean insertRow (GioHangDTO gioHangDTO){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO GIOHANG(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM) VALUES (N'" +gioHangDTO.getTensanpham() + "','"+gioHangDTO.getGiatien()+"','"+gioHangDTO.getSoluong()+"'+'"+gioHangDTO.getImg()+"')";
+                String insertSQL = "INSERT INTO GIOHANG(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM) VALUES (N'" +gioHangDTO.getTensanpham() + "','"+gioHangDTO.getGiatien()+"','"+gioHangDTO.getSoluong()+"','"+gioHangDTO.getImg()+"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -79,20 +79,21 @@ public class GioHangDAO {
                 }
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
-
+        return true;
 
         } catch (Exception e) {
             Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void deleteRow(GioHangDTO gioHangDTO){
+    public void deleteRow(int id ){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "DELETE FROM GIOHANG WHERE id = " + gioHangDTO.getIdgiohang();
+                String sqlUpdate = "DELETE FROM GIOHANG WHERE id = " + id;
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
                 stmt.execute(); // thực thi câu lệnh SQL
