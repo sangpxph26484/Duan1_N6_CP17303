@@ -78,6 +78,7 @@ public class SanPhamActivity extends AppCompatActivity {
 
                 if (gioHangDAO1.insertRow(gioHangDTO1) == true){
                     Toast.makeText(SanPhamActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
                 }else {
                     Toast.makeText(SanPhamActivity.this, "Thêm không thành công", Toast.LENGTH_SHORT).show();
                 }
