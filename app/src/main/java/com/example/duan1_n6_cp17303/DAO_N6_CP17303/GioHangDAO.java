@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.CTHDDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.GioHangDTO;
+import com.example.duan1_n6_cp17303.DTO_N6_CP17303.TaiKhoanDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -107,5 +108,33 @@ public class GioHangDAO {
             Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
             e.printStackTrace();
         }
+    }
+    public int getTongTien() {
+        int tongtien = 0;
+        try {
+            if (this.objConn != null) {
+
+                String sql = "select SUM(GIATIEN) as 'tongtien' from GIOHANG";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sql); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    tongtien = resultSet.getInt("tongtien");// truyền tên cột dữ liệu
+
+
+                }
+            }
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+
+
+        return tongtien;
     }
 }

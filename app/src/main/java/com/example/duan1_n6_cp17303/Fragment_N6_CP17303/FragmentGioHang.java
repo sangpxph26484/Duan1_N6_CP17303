@@ -48,9 +48,16 @@ public class FragmentGioHang extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_gio_hang, container, false);
+        TextView tv_giatiengiohang = view.findViewById(R.id.tv_giatiengiohang);
+
+
 
         lv = view.findViewById(R.id.lv_giohang);
         dao = new GioHangDAO();
+        int a = dao.getTongTien();
+
+        tv_giatiengiohang.setText(a+"đ");
+
         return view;
     }
     @Override
@@ -65,12 +72,15 @@ public class FragmentGioHang extends Fragment {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
                 builder.setTitle("Xóa Sản Phẩm");
                 builder.setMessage("Bạn có chắc chắn muốn xóa không");
+
                 builder.setPositiveButton("Đồng Ý", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try {
+                            list = dao.getAll();
                             GioHangDTO gioHangDTO1 = list.get(position);
                             dao.deleteRow(gioHangDTO1.getIdgiohang());
                             Toast.makeText(getContext(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
