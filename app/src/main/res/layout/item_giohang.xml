@@ -3,25 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="20dp"
+    app:cardCornerRadius="10dp"
+    android:padding="8dp"
+    android:layout_margin="8dp"
     android:backgroundTint="@color/colorbackgounditem">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="6dp">
+        android:layout_margin="8dp"
+        android:padding="5dp">
+
+
 
         <LinearLayout
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="#EEFAFB"
             android:layout_margin="8dp">
 
             <ImageView
+                android:id="@+id/item_giohang_img"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/img_pro"/>
+                android:src="@drawable/img_pro" />
 
         </LinearLayout>
 
@@ -32,83 +37,79 @@
             android:layout_weight="2">
 
             <TextView
+                android:id="@+id/item_giohang_tensanpham"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Túi xách"
+                android:text="Tên sản phẩm:"
                 android:padding="8dp"
-                android:textColor="#F44336"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/item_giohang_gia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giá:"
+                android:padding="8dp"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold"/>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số lượng:"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+           <LinearLayout
+               android:layout_marginLeft="30dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:layout_gravity="center">
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:focusable="false"
+                    android:id="@+id/tv_item_Botsanpham"
+                    android:layout_width="30dp"
+                    android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:text="Đơn giá:"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
+                    android:text="-"
+                    android:backgroundTint="#C88383"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textSize="12sp" />
+                    />
                 <TextView
-                    android:id="@+id/tv_dongia"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="12sp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/item_giohang_soluong"
+                    android:focusable="false"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content"
-                    android:text="Số lượng:"
-                    android:padding="8dp"
+                    android:text="1"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textSize="12sp" />
+                    />
                 <TextView
-                    android:id="@+id/tv_soluong"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="12sp"/>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:focusable="false"
+                    android:id="@+id/tv_item_Themsanpham"
+                    android:layout_width="30dp"
+                    android:gravity="center"
                     android:layout_height="wrap_content"
-                    android:text="Tổng cộng:"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
+                    android:backgroundTint="#C88383"
+                    android:text="+"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textSize="12sp" />
-                <TextView
-                    android:id="@+id/tv_tongcong"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="12sp"/>
-
+                    />
+           </LinearLayout>
             </LinearLayout>
-
 
         </LinearLayout>
 

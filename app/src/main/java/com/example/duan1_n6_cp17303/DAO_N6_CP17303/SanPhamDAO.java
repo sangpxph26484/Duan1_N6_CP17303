@@ -112,4 +112,8 @@ public class SanPhamDAO {
             e.printStackTrace();
         }
     }
+    public void tinhTongTien(SanPhamDTO sanPhamDTO){
+        long tongtien = 0;
+//        for (int i = 0; i<)
+    }
 }

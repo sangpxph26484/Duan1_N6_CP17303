@@ -36,6 +36,12 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".DangKyActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".DangNhapActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
     </application>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ĐÁNH GIÁ SẢN PHẨM"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#F44336"
+        android:textSize="20dp"
+        />
+    <EditText
+        android:id="@+id/ed_binhluan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:hint="Viết đánh giá của bạn vào đây!"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btn_danhgiasp"
+            android:layout_width="141dp"
+            android:layout_height="59dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#4AC3FA"
+            android:textColor="@color/black"
+            android:text="Đánh Giá"
+            android:paddingLeft="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/btn_huydanhgiasp"
+            android:layout_width="141dp"
+            android:layout_height="59dp"
+            android:layout_margin="10dp"
+            android:backgroundTint="#4AC3FA"
+            android:textColor="@color/black"
+            android:text="Hủy"
+            android:paddingLeft="10dp"
+            android:textAllCaps="false"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</LinearLayout>
