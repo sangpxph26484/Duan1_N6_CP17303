@@ -40,6 +40,8 @@ public class LienHeDAO {
                     LienHeDTO lienHeDTO = new LienHeDTO();
                     lienHeDTO.setIdlienhe(resultSet.getInt("ID"));
                     lienHeDTO.setLienhe(resultSet.getString("LIENHE"));
+                    lienHeDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
+                    lienHeDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
 
 

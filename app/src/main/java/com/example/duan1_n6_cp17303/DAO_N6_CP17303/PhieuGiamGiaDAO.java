@@ -41,7 +41,7 @@ public class PhieuGiamGiaDAO {
                     phieuGiamGiaDTO.setIdphieugiamgia(resultSet.getInt("ID"));
                     phieuGiamGiaDTO.setMagiamgia(resultSet.getString("MAGIAMGIA"));
                     phieuGiamGiaDTO.setPhantram(resultSet.getString("PHANTRAM"));
-
+                    phieuGiamGiaDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
 
                     listCat.add(phieuGiamGiaDTO);

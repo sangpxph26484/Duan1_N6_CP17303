@@ -1,20 +1,11 @@
 package com.example.duan1_n6_cp17303.DTO_N6_CP17303;
 
+import java.sql.Blob;
+
 public class TaiKhoanDTO {
-    int idtaikhoan;
     String username;
-    String password;
-    String avatar;
-    int idkhachhang;
-    int idcuahang;
-
-    public int getIdtaikhoan() {
-        return idtaikhoan;
-    }
-
-    public void setIdtaikhoan(int idtaikhoan) {
-        this.idtaikhoan = idtaikhoan;
-    }
+    String pass;
+    Blob avatar;
 
     public String getUsername() {
         return username;
@@ -24,36 +15,20 @@ public class TaiKhoanDTO {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public String getAvatar() {
+    public Blob getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(Blob avatar) {
         this.avatar = avatar;
-    }
-
-    public int getIdkhachhang() {
-        return idkhachhang;
-    }
-
-    public void setIdkhachhang(int idkhachhang) {
-        this.idkhachhang = idkhachhang;
-    }
-
-    public int getIdcuahang() {
-        return idcuahang;
-    }
-
-    public void setIdcuahang(int idcuahang) {
-        this.idcuahang = idcuahang;
     }
 
     public TaiKhoanDTO() {

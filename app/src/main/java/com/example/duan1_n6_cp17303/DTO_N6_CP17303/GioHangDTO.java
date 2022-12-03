@@ -1,15 +1,12 @@
 package com.example.duan1_n6_cp17303.DTO_N6_CP17303;
 
 public class GioHangDTO {
-    int idgiohang;
-    String img;
-    String tensanpham;
-    int soluong;
-    Float giatien;
-    int idkhachhang;
-
-    public GioHangDTO() {
-    }
+  int idgiohang;
+  String tensanpham;
+  float giatien;
+  int soluong;
+  String anhsanpham;
+  int idkhachhang;
 
     public int getIdgiohang() {
         return idgiohang;
@@ -17,14 +14,6 @@ public class GioHangDTO {
 
     public void setIdgiohang(int idgiohang) {
         this.idgiohang = idgiohang;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
     }
 
     public String getTensanpham() {
@@ -35,6 +24,14 @@ public class GioHangDTO {
         this.tensanpham = tensanpham;
     }
 
+    public float getGiatien() {
+        return giatien;
+    }
+
+    public void setGiatien(float giatien) {
+        this.giatien = giatien;
+    }
+
     public int getSoluong() {
         return soluong;
     }
@@ -43,12 +40,12 @@ public class GioHangDTO {
         this.soluong = soluong;
     }
 
-    public Float getGiatien() {
-        return giatien;
+    public String getAnhsanpham() {
+        return anhsanpham;
     }
 
-    public void setGiatien(Float giatien) {
-        this.giatien = giatien;
+    public void setAnhsanpham(String anhsanpham) {
+        this.anhsanpham = anhsanpham;
     }
 
     public int getIdkhachhang() {
@@ -57,5 +54,8 @@ public class GioHangDTO {
 
     public void setIdkhachhang(int idkhachhang) {
         this.idkhachhang = idkhachhang;
+    }
+
+    public GioHangDTO() {
     }
 }

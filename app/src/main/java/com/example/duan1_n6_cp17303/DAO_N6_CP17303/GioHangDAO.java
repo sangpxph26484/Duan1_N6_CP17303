@@ -41,7 +41,7 @@ public class GioHangDAO {
                     gioHangDTO.setTensanpham(resultSet.getString("TENSANPHAM"));
                     gioHangDTO.setGiatien(resultSet.getFloat("GIATIEN"));
                     gioHangDTO.setSoluong(resultSet.getInt("SOLUONG"));
-                    gioHangDTO.setImg(resultSet.getString("ANHSANPHAM"));
+                    gioHangDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
                     gioHangDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
 
@@ -64,7 +64,7 @@ public class GioHangDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO GIOHANG(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM) VALUES (N'" +gioHangDTO.getTensanpham() + "','"+gioHangDTO.getGiatien()+"','"+gioHangDTO.getSoluong()+"','"+gioHangDTO.getImg()+"')";
+                String insertSQL = "INSERT INTO GIOHANG(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM) VALUES (N'" +gioHangDTO.getTensanpham() + "','"+gioHangDTO.getGiatien()+"','"+gioHangDTO.getSoluong()+"','"+gioHangDTO.getAnhsanpham()+"')";
 
                 String generatedColumns[] = { "ID" };
 

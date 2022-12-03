@@ -1,9 +1,10 @@
 package com.example.duan1_n6_cp17303.DTO_N6_CP17303;
 
 public class PhieuGiamGiaDTO {
-    int idphieugiamgia;
-    String magiamgia;
-    String phantram;
+   int idphieugiamgia;
+   String magiamgia;
+   String phantram;
+   int idkhachhang;
 
     public int getIdphieugiamgia() {
         return idphieugiamgia;
@@ -27,6 +28,14 @@ public class PhieuGiamGiaDTO {
 
     public void setPhantram(String phantram) {
         this.phantram = phantram;
+    }
+
+    public int getIdkhachhang() {
+        return idkhachhang;
+    }
+
+    public void setIdkhachhang(int idkhachhang) {
+        this.idkhachhang = idkhachhang;
     }
 
     public PhieuGiamGiaDTO() {

@@ -27,7 +27,7 @@ public class DangNhapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_nhap);
 
-        ed_user = findViewById(R.id.ed_sđtdn);
+        ed_user = findViewById(R.id.ed_sdtdn);
         ed_pass = findViewById(R.id.ed_mkdn);
         cbo_luumk = findViewById(R.id.cb_luumk);
         btn_dangnhap = findViewById(R.id.btn_dangnhapuser);

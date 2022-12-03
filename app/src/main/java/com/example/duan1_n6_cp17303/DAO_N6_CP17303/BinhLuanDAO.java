@@ -38,9 +38,10 @@ public class BinhLuanDAO {
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
                     BinhLuanDTO binhLuanDTO = new BinhLuanDTO();
-                    binhLuanDTO.setIdbinhluan(resultSet.getInt("ID"));
+                    binhLuanDTO.setIdbinhluan(resultSet.getInt("IDBINHLUAN"));
                     binhLuanDTO.setBinhluan(resultSet.getString("BINHLUAN"));
-
+                    binhLuanDTO.setIdsanpham(resultSet.getInt("IDSANPHAM"));
+                    binhLuanDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
 
                     listCat.add(binhLuanDTO);

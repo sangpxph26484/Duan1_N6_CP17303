@@ -38,7 +38,7 @@ public class CTHDDAO {
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
                     CTHDDTO cthddto = new CTHDDTO();
-                    cthddto.setIdcthd(resultSet.getInt("ID"));
+                    cthddto.setIdhoadon(resultSet.getInt("IDHOADON"));
                     cthddto.setIdsanpham(resultSet.getInt("IDSANPHAM"));
                     cthddto.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
                     cthddto.setSoluong(resultSet.getInt("SOLUONG"));
@@ -93,7 +93,7 @@ public class CTHDDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE CHITIETHOADON SET name= N'" + cthddto.getTenkhachhang()+"',N'"+ cthddto.getSoluong()+"','"+ cthddto.getTongtien()+ "'WHERE id = " + cthddto.getIdcthd();
+                String sqlUpdate = "UPDATE CHITIETHOADON SET name= N'" + cthddto.getTenkhachhang()+"',N'"+ cthddto.getSoluong()+"','"+ cthddto.getTongtien()+ "'WHERE id = " + cthddto.getIdhoadon();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);

@@ -38,8 +38,8 @@ public class HoaDonDAO {
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
                     HoaDonDTO hoaDonDTO = new HoaDonDTO();
-                    hoaDonDTO.setIdhoadon(resultSet.getInt("ID"));
-                    hoaDonDTO.setIdcthd(resultSet.getInt("IDCTHD"));
+                    hoaDonDTO.setIdhoadon(resultSet.getInt("IDHOADON"));
+                    hoaDonDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
                     hoaDonDTO.setNgaymua(resultSet.getString("NGAYMUA"));
                     hoaDonDTO.setTrangthai(resultSet.getString("TRANGTHAI"));
 

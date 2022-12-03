@@ -38,7 +38,7 @@
         app:startIconDrawable="@drawable/ic_baseline_phone_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_sđtdn"
+            android:id="@+id/ed_sdtdn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"

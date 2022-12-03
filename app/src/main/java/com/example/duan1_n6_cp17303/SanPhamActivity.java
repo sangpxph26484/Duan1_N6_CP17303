@@ -67,6 +67,7 @@ public class SanPhamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 GioHangDAO gioHangDAO1 = new GioHangDAO();
                 GioHangDTO gioHangDTO1 = new GioHangDTO();
+
                 String tensp1, soluong1, anh1;
                 tensp1 = tensp.getText().toString();
                 soluong1 = txtsoluongsp.getText().toString();
@@ -74,7 +75,7 @@ public class SanPhamActivity extends AppCompatActivity {
                 gioHangDTO1.setTensanpham(tensp1);
                 gioHangDTO1.setGiatien(sanPhamDTO.getGiatien());
                 gioHangDTO1.setSoluong(Integer.parseInt(soluong1));
-                gioHangDTO1.setImg(anh1);
+                gioHangDTO1.setAnhsanpham(anh1);
 
                 if (gioHangDAO1.insertRow(gioHangDTO1) == true){
                     Toast.makeText(SanPhamActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();

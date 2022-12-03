@@ -44,7 +44,7 @@ public class SanPhamDAO {
                     sanPhamDTO.setSoluong(resultSet.getInt("SOLUONG"));
                     sanPhamDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
                     sanPhamDTO.setThongtin(resultSet.getString("THONGTIN"));
-                    sanPhamDTO.setIdbinhluan(resultSet.getInt("IDBINHLUAN"));
+                    sanPhamDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
 
 
 

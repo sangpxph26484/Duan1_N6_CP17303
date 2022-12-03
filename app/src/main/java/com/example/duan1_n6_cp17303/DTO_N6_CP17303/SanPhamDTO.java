@@ -3,20 +3,20 @@ package com.example.duan1_n6_cp17303.DTO_N6_CP17303;
 import java.io.Serializable;
 
 public class SanPhamDTO implements Serializable {
-    int idsanpham;
-    String tensanpham;
-    Float giatien;
-    int soluong;
-    String anhsanpham;
-    String thongtin;
-    int idbinhluan;
+   int idsanpham;
+   String tensanpham;
+   float giatien;
+   int soluong;
+   String anhsanpham;
+   String thongtin;
+   int idcuahang;
 
     public int getIdsanpham() {
         return idsanpham;
     }
 
-    public void setIdsanpham(int idsanpham) {
-        this.idsanpham = idsanpham;
+    public void setIdsanpham(int idsanppham) {
+        this.idsanpham = idsanppham;
     }
 
     public String getTensanpham() {
@@ -27,11 +27,11 @@ public class SanPhamDTO implements Serializable {
         this.tensanpham = tensanpham;
     }
 
-    public Float getGiatien() {
+    public float getGiatien() {
         return giatien;
     }
 
-    public void setGiatien(Float giatien) {
+    public void setGiatien(float giatien) {
         this.giatien = giatien;
     }
 
@@ -59,11 +59,14 @@ public class SanPhamDTO implements Serializable {
         this.thongtin = thongtin;
     }
 
-    public int getIdbinhluan() {
-        return idbinhluan;
+    public int getIdcuahang() {
+        return idcuahang;
     }
 
-    public void setIdbinhluan(int idbinhluan) {
-        this.idbinhluan = idbinhluan;
+    public void setIdcuahang(int idcuahang) {
+        this.idcuahang = idcuahang;
+    }
+
+    public SanPhamDTO() {
     }
 }

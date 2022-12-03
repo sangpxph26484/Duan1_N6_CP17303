@@ -3,6 +3,8 @@ package com.example.duan1_n6_cp17303.DTO_N6_CP17303;
 public class BinhLuanDTO {
     int idbinhluan;
     String binhluan;
+    int idsanpham;
+    int idkhachhang;
 
     public int getIdbinhluan() {
         return idbinhluan;
@@ -18,6 +20,22 @@ public class BinhLuanDTO {
 
     public void setBinhluan(String binhluan) {
         this.binhluan = binhluan;
+    }
+
+    public int getIdsanpham() {
+        return idsanpham;
+    }
+
+    public void setIdsanpham(int idsanpham) {
+        this.idsanpham = idsanpham;
+    }
+
+    public int getIdkhachhang() {
+        return idkhachhang;
+    }
+
+    public void setIdkhachhang(int idkhachhang) {
+        this.idkhachhang = idkhachhang;
     }
 
     public BinhLuanDTO() {

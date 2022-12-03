@@ -36,7 +36,7 @@ public class FragmentGioHang extends Fragment {
     GioHangDAO dao;
     GioHangDTO gioHangDTO;
     List<GioHangDTO> list;
-
+    Button btndathang;
     TextView tvsoluongsp,tvgasp, tvbotsp, btnthemsp;
     public static FragmentGioHang newInstance() {
         FragmentGioHang fragment = new FragmentGioHang();
@@ -65,7 +65,7 @@ public class FragmentGioHang extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         showdata();
         tvgasp = view.findViewById(R.id.item_giohang_gia);
-
+        btndathang = view.findViewById(R.id.btn_dathang);
         tvsoluongsp = view.findViewById(R.id.item_giohang_soluong);
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -101,6 +101,13 @@ public class FragmentGioHang extends Fragment {
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 return false;
+            }
+        });
+
+        btndathang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

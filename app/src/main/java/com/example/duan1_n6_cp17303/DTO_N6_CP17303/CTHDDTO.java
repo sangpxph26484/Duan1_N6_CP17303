@@ -1,19 +1,11 @@
 package com.example.duan1_n6_cp17303.DTO_N6_CP17303;
 
 public class CTHDDTO {
-    int idcthd;
-    int idsanpham;
-    String tenkhachhang;
-    int soluong;
-    Float tongtien;
-
-    public int getIdcthd() {
-        return idcthd;
-    }
-
-    public void setIdcthd(int idcthd) {
-        this.idcthd = idcthd;
-    }
+   int idsanpham;
+   String tenkhachhang;
+   int soluong;
+   float tongtien;
+   int idhoadon;
 
     public int getIdsanpham() {
         return idsanpham;
@@ -39,11 +31,22 @@ public class CTHDDTO {
         this.soluong = soluong;
     }
 
-    public Float getTongtien() {
+    public float getTongtien() {
         return tongtien;
     }
 
-    public void setTongtien(Float tongtien) {
+    public void setTongtien(float tongtien) {
         this.tongtien = tongtien;
+    }
+
+    public int getIdhoadon() {
+        return idhoadon;
+    }
+
+    public void setIdhoadon(int idhoadon) {
+        this.idhoadon = idhoadon;
+    }
+
+    public CTHDDTO() {
     }
 }

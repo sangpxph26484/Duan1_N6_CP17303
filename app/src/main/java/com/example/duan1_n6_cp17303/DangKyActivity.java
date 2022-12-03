@@ -62,7 +62,7 @@ public class DangKyActivity extends AppCompatActivity {
                         int a = taiKhoanDAO.checkUser(sdt);
                         if (a == -1) {
                             taiKhoanDTO.setUsername(sdt);
-                            taiKhoanDTO.setPassword(mk);
+                            taiKhoanDTO.setPass(mk);
                             khachHangDTO.setDiachi(diachi);
                             khachHangDTO.setEmail(email);
                             khachHangDTO.setTenkhachhang(hoTen);

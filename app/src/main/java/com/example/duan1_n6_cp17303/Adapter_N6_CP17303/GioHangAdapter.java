@@ -64,34 +64,16 @@ public class GioHangAdapter extends BaseAdapter {
         TextView txtItemtenspgiohang = view.findViewById(R.id.item_giohang_tensanpham);
         TextView txtItemgiaspgiohang = view.findViewById(R.id.item_giohang_gia);
         TextView txtItemsoluongspgiohang = view.findViewById(R.id.item_giohang_soluong);
-        TextView tvItembotsp = view.findViewById(R.id.tv_item_Botsanpham);
-        TextView tvItemthemsp = view.findViewById(R.id.tv_item_Themsanpham);
+
 
         GioHangDTO gioHangDTO =list.get(position);
-        Glide.with(view.getContext()).load(Uri.parse(gioHangDTO.getImg())).into(imgItemimggiohang);
+        Glide.with(view.getContext()).load(Uri.parse(gioHangDTO.getAnhsanpham())).into(imgItemimggiohang);
         txtItemtenspgiohang.setText( gioHangDTO.getTensanpham());
         txtItemgiaspgiohang.setText("Giá:" + gioHangDTO.getGiatien()+"đ");
         txtItemsoluongspgiohang.setText(gioHangDTO.getSoluong()+"");
 
         count = Integer.parseInt(txtItemsoluongspgiohang.getText().toString());
-        tvItembotsp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (count <= 0) count = 0;
-                else count --;
-                txtItemsoluongspgiohang.setText(""+count);
-                txtItemgiaspgiohang.setText("Giá: "+gioHangDTO.getGiatien() * count +"");
-            }
-        });
-        tvItemthemsp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                count ++;
-                txtItemsoluongspgiohang.setText(""+count);
 
-                txtItemgiaspgiohang.setText("Giá: "+gioHangDTO.getGiatien() * count +"");
-            }
-        });
         return view;
     }
 

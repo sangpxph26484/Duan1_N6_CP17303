@@ -17,6 +17,7 @@ import com.example.duan1_n6_cp17303.DAO_N6_CP17303.KhachHangDAO;
 import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
 
+import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentHoaDon;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentGioHang;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentMenu;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThem;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentGioHang fragmentGioHang= new FragmentGioHang();
         FragmentThongTinCn fragmentThongTinCn= new FragmentThongTinCn();
         FragmentThem fragmentThem = new FragmentThem();
+        FragmentHoaDon fragmentHoaDon = new FragmentHoaDon();
 
         fragmentManager.beginTransaction().add(R.id.container_frag,fragmentMenu).commit();
 
@@ -80,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_giohang:
                         replaceFragment(fragmentGioHang.newInstance());
+                        break;
+                    case R.id.nav_donhang:
+                        replaceFragment(fragmentHoaDon.newInstance());
                         break;
                     default:
                         replaceFragment(fragmentMenu.newInstance());

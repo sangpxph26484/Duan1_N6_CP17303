@@ -38,12 +38,10 @@ public class TaiKhoanDAO {
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
-                    taiKhoanDTO.setIdtaikhoan(resultSet.getInt("ID"));
                     taiKhoanDTO.setUsername(resultSet.getString("USERNAME"));
-                    taiKhoanDTO.setPassword(resultSet.getString("PASSWORD"));
-                    taiKhoanDTO.setAvatar(resultSet.getString("AVATAR"));
-                    taiKhoanDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
-                    taiKhoanDTO.setIdcuahang(resultSet.getInt("IDCUAHANG"));
+                    taiKhoanDTO.setPass(resultSet.getString("PASSWORD"));
+                    taiKhoanDTO.setAvatar(resultSet.getBlob("AVATAR"));
+
 
 
 
@@ -65,7 +63,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO TAIKHOAN(USENAME,PASS) VALUES ('" + taiKhoanDTO.getUsername()+"',N'"+taiKhoanDTO.getPassword()  +"')";
+                String insertSQL = "INSERT INTO TAIKHOAN(USERNAME,PASS) VALUES ('" + taiKhoanDTO.getUsername()+"',N'"+taiKhoanDTO.getPass()  +"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -96,7 +94,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE TAIKHOAN SET name= '" + taiKhoanDTO.getUsername()+"','"+ taiKhoanDTO.getPassword()+"','"+ taiKhoanDTO.getAvatar() + "'WHERE id = " + taiKhoanDTO.getIdtaikhoan();
+                String sqlUpdate = "UPDATE TAIKHOAN SET name= '" + taiKhoanDTO.getUsername()+"','"+ taiKhoanDTO.getPass()+"','"+ taiKhoanDTO.getAvatar() + "'WHERE id = " + taiKhoanDTO.getUsername();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -119,7 +117,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
 
-                String sql = "SELECT * FROM TAIKHOAN WHERE USENAME = '" + name +"'";
+                String sql = "SELECT * FROM TAIKHOAN WHERE USERNAME = '" + name +"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -129,7 +127,7 @@ public class TaiKhoanDAO {
 
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
 
-                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));// truyền tên cột dữ liệu
+                    taiKhoanDTO.setUsername(resultSet.getString("USERNAME"));// truyền tên cột dữ liệu
 
 
                     listCat.add(taiKhoanDTO);
@@ -156,7 +154,7 @@ public class TaiKhoanDAO {
         try {
             if (this.objConn != null) {
 
-                String sql = "SELECT * FROM TAIKHOAN WHERE USENAME = '" + user + "' AND PASS = '" + pass + "'";
+                String sql = "SELECT * FROM TAIKHOAN WHERE USERNAME = '" + user + "' AND PASS = '" + pass + "'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -166,8 +164,8 @@ public class TaiKhoanDAO {
 
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
 
-                    taiKhoanDTO.setUsername(resultSet.getString("USENAME"));// truyền tên cột dữ liệu
-                    taiKhoanDTO.setPassword(resultSet.getString("PASS")); // tên cột dữ liệu là pass
+                    taiKhoanDTO.setUsername(resultSet.getString("USERNAME"));// truyền tên cột dữ liệu
+                    taiKhoanDTO.setPass(resultSet.getString("PASS")); // tên cột dữ liệu là pass
 
                     listCat.add(taiKhoanDTO);
 
