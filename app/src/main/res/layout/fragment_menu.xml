@@ -5,27 +5,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-<LinearLayout
-    android:id="@+id/actionbar"
-    android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
-    android:orientation="horizontal"
-    android:background="@color/colorActionbar"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintLeft_toLeftOf="parent">
-    <TextView
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/image_slider"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Trang Chủ"
-        android:layout_weight="1"
-        android:textStyle="bold"
-        android:textSize="26sp"
-        android:textColor="@color/black"
-        android:padding="8dp"
-        android:gravity="center"/>
-
-</LinearLayout>
+        android:layout_height="250dp"
+        app:iss_auto_cycle="true"
+        app:iss_period="1500"
+        app:iss_delay="0"
+        app:iss_text_align="CENTER"
+        app:iss_title_background="@drawable/gradient"
+        />
 
     <ListView
         android:layout_margin="5dp"
