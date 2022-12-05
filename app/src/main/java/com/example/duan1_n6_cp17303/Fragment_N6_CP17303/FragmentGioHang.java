@@ -28,6 +28,7 @@ import com.example.duan1_n6_cp17303.DAO_N6_CP17303.SanPhamDAO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.GioHangDTO;
 import com.example.duan1_n6_cp17303.R;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class FragmentGioHang extends Fragment {
@@ -55,8 +56,8 @@ public class FragmentGioHang extends Fragment {
         lv = view.findViewById(R.id.lv_giohang);
         dao = new GioHangDAO();
         int a = dao.getTongTien();
-
-        tv_giatiengiohang.setText(a+"đ");
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        tv_giatiengiohang.setText(decimalFormat.format(a)+"đ");
 
         return view;
     }

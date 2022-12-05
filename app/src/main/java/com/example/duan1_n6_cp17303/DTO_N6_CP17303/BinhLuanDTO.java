@@ -5,6 +5,7 @@ public class BinhLuanDTO {
     String binhluan;
     int idsanpham;
     int idkhachhang;
+    String tenkhachhang;
 
     public int getIdbinhluan() {
         return idbinhluan;
@@ -36,6 +37,14 @@ public class BinhLuanDTO {
 
     public void setIdkhachhang(int idkhachhang) {
         this.idkhachhang = idkhachhang;
+    }
+
+    public String getTenkhachhang() {
+        return tenkhachhang;
+    }
+
+    public void setTenkhachhang(String tenkhachhang) {
+        this.tenkhachhang = tenkhachhang;
     }
 
     public BinhLuanDTO() {

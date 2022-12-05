@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentMenu fragmentMenu = new FragmentMenu();
         FragmentGioHang fragmentGioHang= new FragmentGioHang();
         FragmentThongTinCn fragmentThongTinCn= new FragmentThongTinCn();
-        FragmentThem fragmentThem = new FragmentThem();
+
         FragmentHoaDon fragmentHoaDon = new FragmentHoaDon();
 
         fragmentManager.beginTransaction().add(R.id.container_frag,fragmentMenu).commit();
@@ -77,9 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_ttcn:
                         replaceFragment(fragmentThongTinCn.newInstance());
                         break;
-                    case R.id.nav_them:
-                        replaceFragment(fragmentThem.newInstance());
-                        break;
+
                     case R.id.nav_giohang:
                         replaceFragment(fragmentGioHang.newInstance());
                         break;

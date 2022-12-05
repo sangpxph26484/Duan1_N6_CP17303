@@ -126,15 +126,16 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center">
+
         <Button
             android:id="@+id/btn_dangky_ttcn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Đăng ký"
             android:layout_margin="20dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#3A77A8"
-            />
+            android:text="Đăng ký" />
+
         <Button
             android:id="@+id/btn_dangnhap_ttcn"
             android:layout_width="wrap_content"
@@ -142,9 +143,7 @@
             android:layout_marginTop="10dp"
             android:layout_margin="20dp"
             android:text="Đăng nhập "
-
             android:backgroundTint="#3A77A8"
             />
-
     </LinearLayout>
 </LinearLayout>

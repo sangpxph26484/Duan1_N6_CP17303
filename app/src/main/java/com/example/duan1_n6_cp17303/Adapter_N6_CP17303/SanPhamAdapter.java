@@ -1,7 +1,10 @@
 package com.example.duan1_n6_cp17303.Adapter_N6_CP17303;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +18,7 @@ import com.example.duan1_n6_cp17303.MainActivity;
 import com.example.duan1_n6_cp17303.R;
 import com.example.duan1_n6_cp17303.SanPhamActivity;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class SanPhamAdapter extends BaseAdapter {
@@ -60,7 +64,8 @@ public class SanPhamAdapter extends BaseAdapter {
         SanPhamDTO sanPhamDTO =list.get(position);
         Glide.with(view.getContext()).load(Uri.parse(sanPhamDTO.getAnhsanpham())).into(imgItemsp);
         txtItemtensp.setText( sanPhamDTO.getTensanpham());
-        txtItemgiasp.setText( sanPhamDTO.getGiatien()+"đ");
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        txtItemgiasp.setText( decimalFormat.format(sanPhamDTO.getGiatien())+"đ");
         txtItemthongtinsp.setText (sanPhamDTO.getThongtin());
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +75,10 @@ public class SanPhamAdapter extends BaseAdapter {
                 intent.addFlags (Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
+                SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("Mypref",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("key_SP",sanPhamDTO.getIdsanpham());
+                editor.commit();
             }
         });
         return view;
