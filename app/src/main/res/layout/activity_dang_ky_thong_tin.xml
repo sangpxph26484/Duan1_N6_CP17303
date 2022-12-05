@@ -8,30 +8,30 @@
     android:background="@drawable/bgr">
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:layout_marginTop="4dp"
-        android:id="@+id/imgBackdangky"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_backdky"
-        android:padding="10dp"
-        />
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:src="@drawable/img"
-        android:layout_marginRight="45dp"
-        />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginTop="4dp"
+            android:id="@+id/imgBackdangkytt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_backdky"
+            android:padding="10dp"
+            />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:src="@drawable/img"
+            android:layout_marginRight="45dp"
+            />
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Đăng Ký"
+        android:text="Đăng Ký Thông Tin"
         android:gravity="center"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -39,11 +39,11 @@
         android:layout_marginBottom="15dp"
         />
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_tilTaiKhoan"
+        android:id="@+id/login_tilten"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:hint="Tên Tài Khoản"
+        android:hint="Họ và Tên"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         app:startIconDrawable="@drawable/ic_baseline_account_circle_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_taiKhoan"
+            android:id="@+id/ed_hoTen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
@@ -63,44 +63,64 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_tilpassword1"
+        android:id="@+id/login_tilphone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Mật Khẩu"
+        android:hint="Số Điện Thoại"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
-        app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/ic_baseline_info_24">
+
+        app:startIconDrawable="@drawable/ic_baseline_phone_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_mk"
+            android:id="@+id/ed_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:inputType="text|phone"
             android:textSize="20sp"
             android:textStyle="bold" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_tilpassword"
+        android:id="@+id/login_tilemail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Nhập Lại Mật Khẩu"
+        android:hint="Email"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
-        app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/ic_baseline_info_24">
+        app:startIconDrawable="@drawable/ic_baseline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ed_laimk"
+            android:id="@+id/ed_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_tildiachi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="Địa Chỉ"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_tilusername"
+        app:startIconDrawable="@drawable/ic_baseline_home_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_diachi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -109,7 +129,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_dangkyuser"
+        android:id="@+id/btn_dangkythongtin"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

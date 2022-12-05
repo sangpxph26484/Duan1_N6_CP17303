@@ -28,13 +28,17 @@ public class DangNhapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dang_nhap);
 
         ed_user = findViewById(R.id.ed_sdtdn);
+
         ed_pass = findViewById(R.id.ed_mkdn);
+
         cbo_luumk = findViewById(R.id.cb_luumk);
         btn_dangnhap = findViewById(R.id.btn_dangnhapuser);
         tv_quenmk = findViewById(R.id.tv_quenmatkhau);
         tv_chuadangky = findViewById(R.id.tv_chuadangki);
+
+
         TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
-        String a;
+
         btn_dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,10 +49,13 @@ public class DangNhapActivity extends AppCompatActivity {
                 } else if (taiKhoanDAO.checkLogin(tk,mk) == 1) {
                     remember(tk,mk, cbo_luumk.isChecked());
 
-
                     Intent intent = new Intent(DangNhapActivity.this, MainActivity.class);
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thành công", Toast.LENGTH_LONG).show();
                     startActivity(intent);
+                    SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Mypref",MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("key_TK1",tk);
+                    editor.commit();
                 } else {
                     Toast.makeText(DangNhapActivity.this, "Đăng nhập thất bại", Toast.LENGTH_LONG).show();
                 }
