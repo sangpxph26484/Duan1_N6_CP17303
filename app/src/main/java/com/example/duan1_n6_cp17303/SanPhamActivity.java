@@ -48,7 +48,7 @@ public class SanPhamActivity extends AppCompatActivity {
     BinhLuanDAO binhLuanDAO;
     BinhLuanDTO binhLuanDTO;
     List<BinhLuanDTO> list = new ArrayList<>();
-
+    String sang;
 
 
     @Override
