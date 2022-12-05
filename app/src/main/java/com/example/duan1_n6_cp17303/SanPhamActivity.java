@@ -4,6 +4,7 @@ import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.example.duan1_n6_cp17303.DTO_N6_CP17303.GioHangDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentGioHang;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.LongToDoubleFunction;
@@ -54,10 +56,11 @@ public class SanPhamActivity extends AppCompatActivity {
         sanPhamDTO = (SanPhamDTO)  getIntent().getSerializableExtra(  "chitiet");
 
 
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
 
         Glide.with(this).load(sanPhamDTO.getAnhsanpham()).into(imgsanpham);
         tensp.setText("Tên Sản Phẩm: "+sanPhamDTO.getTensanpham());
-        giasp.setText("Giá: "+sanPhamDTO.getGiatien());
+        giasp.setText("Giá: "+decimalFormat.format(sanPhamDTO.getGiatien()) );
         mota.setText(sanPhamDTO.getThongtin());
 
 
@@ -77,11 +80,20 @@ public class SanPhamActivity extends AppCompatActivity {
                 gioHangDTO1.setSoluong(Integer.parseInt(soluong1));
                 gioHangDTO1.setAnhsanpham(anh1);
 
-                if (gioHangDAO1.insertRow(gioHangDTO1) == true){
-                    Toast.makeText(SanPhamActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                    onBackPressed();
+                SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Login", MODE_PRIVATE);
+                String u = sharedPreferences.getString("name", "");
+                if (u.equals("")){
+                    Toast.makeText(SanPhamActivity.this, "Bạn Cần Phải Đăng Nhập", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getBaseContext(),DangNhapActivity.class);
+                    startActivity(intent);
                 }else {
-                    Toast.makeText(SanPhamActivity.this, "Thêm không thành công", Toast.LENGTH_SHORT).show();
+
+                    if (gioHangDAO1.insertRow(gioHangDTO1) == true){
+                        Toast.makeText(SanPhamActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                        onBackPressed();
+                    }else {
+                        Toast.makeText(SanPhamActivity.this, "Thêm không thành công", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }

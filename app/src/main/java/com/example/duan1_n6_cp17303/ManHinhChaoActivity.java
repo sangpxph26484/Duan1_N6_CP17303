@@ -18,14 +18,12 @@ public class ManHinhChaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_man_hinh_chao);
 
-
-
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                Intent intent = new Intent(ManHinhChaoActivity.this,DangNhapActivity.class);
+                Intent intent = new Intent(ManHinhChaoActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         }, 3000);

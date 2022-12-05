@@ -1,5 +1,6 @@
 package com.example.duan1_n6_cp17303.DAO_N6_CP17303;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 
@@ -38,7 +39,7 @@ public class KhachHangDAO {
                 while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
 
                     KhachHangDTO khachHangDTO = new KhachHangDTO();
-                    khachHangDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
+                    khachHangDTO.setIdkhachhang(resultSet.getInt("ID"));
                     khachHangDTO.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
                     khachHangDTO.setPhone(resultSet.getString("PHONE"));
                     khachHangDTO.setEmail(resultSet.getString("EMAIL"));
@@ -64,7 +65,7 @@ public class KhachHangDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO KHACHHANG(TENKHACHHANG,PHONE,EMAIL,DIACHI) VALUES (N'" + khachHangDTO.getTenkhachhang() + "','"+khachHangDTO.getPhone()+ "','"+khachHangDTO.getEmail()+"',N'"+khachHangDTO.getDiachi()+"')";
+                String insertSQL = "INSERT INTO KHACHHANG(TENKHACHHANG,PHONE,EMAIL,DIACHI,USERNAME) VALUES (N'" + khachHangDTO.getTenkhachhang() + "','"+khachHangDTO.getPhone()+ "','"+khachHangDTO.getEmail()+"',N'"+khachHangDTO.getDiachi()+"','"+khachHangDTO.getUsername()+"')";
 
                 String generatedColumns[] = { "ID" };
 
@@ -94,7 +95,7 @@ public class KhachHangDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE KHACHHANG SET name= N'" + khachHangDTO.getTenkhachhang()  +"',N'"+ khachHangDTO.getPhone() +"','"+ khachHangDTO.getEmail() +"',N'"+ khachHangDTO.getDiachi() + "'WHERE id = " + khachHangDTO.getIdkhachhang();
+                String sqlUpdate = "UPDATE KHACHHANG SET name= N'" + khachHangDTO.getTenkhachhang()  +"',N'"+ khachHangDTO.getPhone() +"','"+ khachHangDTO.getEmail() +"',N'"+ khachHangDTO.getDiachi() + "'WHERE USERNAME = '" + khachHangDTO.getUsername()+"'";
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -110,5 +111,113 @@ public class KhachHangDAO {
             Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
             e.printStackTrace();
         }
+    }
+    public String getTenByUser(String user){
+        String ten = null;
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select TENKHACHHANG from KHACHHANG where USERNAME = '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                     ten = resultSet.getString("TENKHACHHANG");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  ten;
+    }
+    public String getEmailByUser(String user){
+        String email = null;
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select EMAIL from KHACHHANG where USERNAME = '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                    email = resultSet.getString("EMAIL");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  email;
+    }
+    public String getSdtByUser(String user){
+        String sdt = null;
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select PHONE from KHACHHANG where USERNAME = '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                    sdt = resultSet.getString("PHONE");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  sdt;
+    }
+    public String getDcByUser(String user){
+        String diachi = null;
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select DIACHI from KHACHHANG where USERNAME = '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                    diachi = resultSet.getString("DIACHI");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  diachi;
     }
 }
