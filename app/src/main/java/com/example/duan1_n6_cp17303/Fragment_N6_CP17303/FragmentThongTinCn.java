@@ -37,7 +37,7 @@ public class FragmentThongTinCn extends Fragment {
 
     public static FragmentThongTinCn newInstance() {
         FragmentThongTinCn fragment = new FragmentThongTinCn();
-
+String a;
         return fragment;
     }
 
