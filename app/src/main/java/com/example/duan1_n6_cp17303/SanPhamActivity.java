@@ -50,7 +50,7 @@ public class SanPhamActivity extends AppCompatActivity {
     List<BinhLuanDTO> list = new ArrayList<>();
 
 
-    String sang;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
