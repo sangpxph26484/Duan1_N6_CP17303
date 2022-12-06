@@ -17,13 +17,14 @@ import java.util.List;
 public class TaiKhoanDAO {
 
     Connection objConn;
-    public TaiKhoanDAO(){
+
+    public TaiKhoanDAO() {
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public List<TaiKhoanDTO> getAll(){
+    public List<TaiKhoanDTO> getAll() {
         List<TaiKhoanDTO> listCat = new ArrayList<TaiKhoanDTO>();
 
         try {
@@ -40,9 +41,7 @@ public class TaiKhoanDAO {
                     TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
                     taiKhoanDTO.setUsername(resultSet.getString("USERNAME"));
                     taiKhoanDTO.setPass(resultSet.getString("PASSWORD"));
-                    taiKhoanDTO.setAvatar(resultSet.getBlob("AVATAR"));
-
-
+                    taiKhoanDTO.setAvatar(resultSet.getString("AVATAR"));
 
 
                     listCat.add(taiKhoanDTO);
@@ -50,22 +49,22 @@ public class TaiKhoanDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
     }
-    public boolean insertRow (TaiKhoanDTO taiKhoanDTO){
+
+    public boolean insertRow(TaiKhoanDTO taiKhoanDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO TAIKHOAN(USERNAME,PASS) VALUES ('" + taiKhoanDTO.getUsername()+"',N'"+taiKhoanDTO.getPass()  +"')";
+                String insertSQL = "INSERT INTO TAIKHOAN(USERNAME,PASS) VALUES ('" + taiKhoanDTO.getUsername() + "',N'" + taiKhoanDTO.getPass() + "')";
 
-                String generatedColumns[] = { "ID" };
+                String generatedColumns[] = {"ID"};
 
                 PreparedStatement stmtInsert = this.objConn.prepareStatement(insertSQL, generatedColumns);
                 stmtInsert.execute();
@@ -82,19 +81,19 @@ public class TaiKhoanDAO {
             return true;
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
+            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu ");
             e.printStackTrace();
             return false;
         }
 
     }
 
-    public void updateRow(TaiKhoanDTO taiKhoanDTO){
+    public void updateRow(TaiKhoanDTO taiKhoanDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE TAIKHOAN SET name= '" + taiKhoanDTO.getUsername()+"','"+ taiKhoanDTO.getPass()+"','"+ taiKhoanDTO.getAvatar() + "'WHERE id = " + taiKhoanDTO.getUsername();
+                String sqlUpdate = "UPDATE TAIKHOAN SET name= '" + taiKhoanDTO.getUsername() + "','" + taiKhoanDTO.getPass() + "','" + taiKhoanDTO.getAvatar() + "'WHERE id = " + taiKhoanDTO.getUsername();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -107,17 +106,18 @@ public class TaiKhoanDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
             e.printStackTrace();
         }
     }
+
     public int checkUser(String name) {
         List<TaiKhoanDTO> listCat = new ArrayList<TaiKhoanDTO>();
 
         try {
             if (this.objConn != null) {
 
-                String sql = "SELECT * FROM TAIKHOAN WHERE USERNAME = '" + name +"'";
+                String sql = "SELECT * FROM TAIKHOAN WHERE USERNAME = '" + name + "'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -182,5 +182,22 @@ public class TaiKhoanDAO {
         }
 
         return 1;
+    }
+
+    public boolean updateavatar(String avatar, String user) {
+        try {
+            if (this.objConn != null) {
+                String sqlUpdate = "UPDATE taikhoan SET avatar = '" + avatar + "' where username = '" + user + "'";
+
+                PreparedStatement statement = this.objConn.prepareStatement(sqlUpdate);
+                statement.execute();
+                Log.e("zzzzz", "insertSP : thanh cong");
+            }
+            return true;
+        } catch (Exception e) {
+            Log.e("zzzz", "updateSP : co loi sua du lieu");
+            e.printStackTrace();
+            return false;
+        }
     }
 }

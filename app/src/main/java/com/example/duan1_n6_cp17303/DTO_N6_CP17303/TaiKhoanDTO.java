@@ -5,7 +5,7 @@ import java.sql.Blob;
 public class TaiKhoanDTO {
     String username;
     String pass;
-    Blob avatar;
+    String avatar;
 
     public String getUsername() {
         return username;
@@ -23,11 +23,11 @@ public class TaiKhoanDTO {
         this.pass = pass;
     }
 
-    public Blob getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Blob avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
