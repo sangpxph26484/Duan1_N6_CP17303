@@ -1,12 +1,9 @@
 package com.example.duan1_n6_cp17303.DAO_N6_CP17303;
 
-import android.content.SharedPreferences;
 import android.util.Log;
-
 
 import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
-
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -270,9 +267,8 @@ public class KhachHangDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
@@ -362,6 +358,7 @@ public class KhachHangDAO {
                 stmt.execute(); // thực thi câu lệnh SQL
 
                 Log.d("zzzzz", "updateRow: finish Update");
+
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
             return true;
 

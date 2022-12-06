@@ -31,6 +31,7 @@ import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.TaiKhoanDTO;
 import com.example.duan1_n6_cp17303.DangKyActivity;
 import com.example.duan1_n6_cp17303.DangNhapActivity;
+import com.example.duan1_n6_cp17303.DoiMatKhauActivity;
 import com.example.duan1_n6_cp17303.MainActivity;
 import com.example.duan1_n6_cp17303.R;
 import com.google.android.material.textfield.TextInputLayout;
@@ -40,7 +41,7 @@ import java.util.List;
 public class FragmentThongTinCn extends Fragment {
     ImageView avatar;
     TextView name, email, sdt, diaChi,tv_suatten, tv_suaemail, tv_suasdt, tv_suadiachi;
-    Button dangki, dangnhap;
+    Button dangki, dangnhap,doimatkhau;
     KhachHangDAO dao;
     List<KhachHangDTO> list;
     String avatar1;
@@ -72,6 +73,7 @@ public class FragmentThongTinCn extends Fragment {
         avatar = view.findViewById(R.id.img_ttcn);
         dangki = view.findViewById(R.id.btn_dangky_ttcn);
         dangnhap = view.findViewById(R.id.btn_dangnhap_ttcn);
+        doimatkhau = view.findViewById(R.id.btn_doimk);
         dao = new KhachHangDAO();
 
         String ten = dao.getTenByUser(user);
@@ -89,14 +91,16 @@ public class FragmentThongTinCn extends Fragment {
 
         if (u.equals("") || p.equals("")) {
             dangnhap.setText("Đăng nhập");
+            doimatkhau.setVisibility(View.GONE);
             name.setText("");
             email.setText("");
             diaChi.setText("");
             sdt.setText("");
-            Glide.with(getContext()).load(Uri.parse(avatar1)).into(avatar);
+            Glide.with(getContext()).load(Uri.parse("")).into(avatar);
 
 
         } else {
+            doimatkhau.setVisibility(View.VISIBLE);
             dangnhap.setText("Đăng Xuất");
             name.setText(ten);
             email.setText(mail);
@@ -122,6 +126,13 @@ public class FragmentThongTinCn extends Fragment {
             }
 
         });
+        doimatkhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity().getApplicationContext(), DoiMatKhauActivity.class));
+            }
+        });
+
         dangki.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -321,7 +332,11 @@ public class FragmentThongTinCn extends Fragment {
         Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.dialog_avatar);
 
-
+        Window window = dialog.getWindow();
+        if(window == null){
+            return;
+        }
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT);
         //ánh xạ
         TextInputLayout layoutavatar = dialog.findViewById(R.id.layout_avatar);
         Button btnthem = dialog.findViewById(R.id.them_avatar);
@@ -351,7 +366,6 @@ public class FragmentThongTinCn extends Fragment {
             }
         });
         dialog.show();
-
 
     }
 }

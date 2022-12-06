@@ -19,19 +19,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
         <Button
             android:id="@+id/them_avatar"
-            android:layout_width="195dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thêm"
+            android:layout_weight="1"
+            android:text="Thay avatar"
             android:layout_margin="10dp"/>
         <Button
             android:id="@+id/huy_avatar"
-            android:layout_width="195dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hủy"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 </LinearLayout>
