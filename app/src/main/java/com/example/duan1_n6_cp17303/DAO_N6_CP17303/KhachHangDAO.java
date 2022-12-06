@@ -220,4 +220,124 @@ public class KhachHangDAO {
 
         return  diachi;
     }
+    public String getAvatarByUser(String user){
+        String avatar1 = null;
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select AVATAR from TAIKHOAN where USERNAME = '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                    avatar1 = resultSet.getString("AVATAR");
+
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
+        }
+
+        return  avatar1;
+    }
+    public boolean updateDiaChiKh(String diachi, String user) {
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "UPDATE KHACHHANG SET DIACHI= N'" + diachi + "'WHERE USERNAME = '" + user + "'";
+
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Update");
+
+
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+            return true;
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateEmailKh(String email, String user) {
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "UPDATE KHACHHANG SET EMAIL= N'" + email + "'WHERE USERNAME = '" + user + "'";
+
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Update");
+
+
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+            return true;
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updatePhoneKh(String phone, String user) {
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "UPDATE KHACHHANG SET PHONE= N'" + phone + "'WHERE USERNAME = '" + user + "'";
+
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Update");
+
+
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+            return true;
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateTenKh(String ten, String user) {
+
+        try {
+            if (this.objConn != null) {
+                // ghép chuỗi SQL
+                String sqlUpdate = "UPDATE KHACHHANG SET TENKHACHHANG= N'" + ten + "'WHERE USERNAME = '" + user + "'";
+
+
+                PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
+                stmt.execute(); // thực thi câu lệnh SQL
+
+                Log.d("zzzzz", "updateRow: finish Update");
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+            return true;
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
