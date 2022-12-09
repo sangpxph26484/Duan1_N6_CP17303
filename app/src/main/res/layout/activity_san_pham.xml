@@ -160,37 +160,44 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp" />
         </ScrollView>
+
+
     </LinearLayout>
 
     <ListView
         android:id="@+id/sanpham_lv_binhluan"
         android:layout_width="match_parent"
-        android:layout_height="335dp"
+        android:layout_height="300dp"
         android:padding="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:layout_gravity="end">
+
+
 
         <EditText
             android:id="@+id/sanpham_ed_binhluan"
-            android:layout_width="337dp"
+            android:layout_width="wrap_content"
             android:layout_height="45dp"
-            android:layout_weight="6"
+            android:layout_weight="8"
             android:background="@drawable/botron_ed_binhluan"
             android:hint="Bình Luận"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/white"
-            android:text="sssssssssssssssss"/>
+            android:layout_gravity="bottom|end"
+            />
 
         <ImageView
             android:id="@+id/sanpham_img_binhluan"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:src="@drawable/ic_send" />
+            android:layout_weight="1"
+            android:src="@drawable/ic_send"
+            android:layout_gravity="bottom|end"/>
     </LinearLayout>
 </LinearLayout>
