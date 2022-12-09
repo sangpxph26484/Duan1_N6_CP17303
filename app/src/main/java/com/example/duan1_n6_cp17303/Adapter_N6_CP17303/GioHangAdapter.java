@@ -65,11 +65,11 @@ public class GioHangAdapter extends BaseAdapter {
         TextView txtItemgiaspgiohang = view.findViewById(R.id.item_giohang_gia);
         TextView txtItemsoluongspgiohang = view.findViewById(R.id.item_giohang_soluong);
 
-
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         GioHangDTO gioHangDTO =list.get(position);
         Glide.with(view.getContext()).load(Uri.parse(gioHangDTO.getAnhsanpham())).into(imgItemimggiohang);
         txtItemtenspgiohang.setText( gioHangDTO.getTensanpham());
-        txtItemgiaspgiohang.setText("Giá:" + gioHangDTO.getGiatien()+"đ");
+        txtItemgiaspgiohang.setText("Giá:" +decimalFormat.format(gioHangDTO.getGiatien()) +"đ");
         txtItemsoluongspgiohang.setText(gioHangDTO.getSoluong()+"");
 
         count = Integer.parseInt(txtItemsoluongspgiohang.getText().toString());

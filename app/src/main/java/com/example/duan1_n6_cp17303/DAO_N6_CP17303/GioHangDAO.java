@@ -114,7 +114,7 @@ public class GioHangDAO {
         try {
             if (this.objConn != null) {
 
-                String sql = "select SUM(GIATIEN) as 'tongtien' from GIOHANG";
+                String sql = "select SUM(GIATIEN*SOLUONG) as 'tongtien' from GIOHANG";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 

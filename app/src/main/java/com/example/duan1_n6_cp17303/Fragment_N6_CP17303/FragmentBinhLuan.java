@@ -54,7 +54,7 @@ public class FragmentBinhLuan extends Fragment {
 
             }
         });
-        loaddata();
+//        loaddata();
 
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -83,7 +83,7 @@ public class FragmentBinhLuan extends Fragment {
                         try {
                             binhLuanDAO.updateRow(binhLuanDTO1);
                             Toast.makeText(getContext(), "Sửa Thành Công", Toast.LENGTH_SHORT).show();
-                            loaddata();
+//                            loaddata();
                             dialog.dismiss();
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -98,7 +98,7 @@ public class FragmentBinhLuan extends Fragment {
                         try {
                             binhLuanDAO.deleteRow(list.get(position));
                             Toast.makeText(getContext(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
-                            loaddata();
+//                            loaddata();
                             dialog.dismiss();
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -121,14 +121,14 @@ public class FragmentBinhLuan extends Fragment {
 
 
     }
-    public  void loaddata(){
-
-        list = binhLuanDAO.getAll();
-        adapter = new BinhLuanAdapter( binhLuanDAO.getAll(),getContext());
-        lv.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-    }
+//    public  void loaddata(){
+//
+//        list = binhLuanDAO.getAll();
+//        adapter = new BinhLuanAdapter( binhLuanDAO.getAll(),getContext());
+//        lv.setAdapter(adapter);
+//        adapter.notifyDataSetChanged();
+//
+//    }
     public void showDialogAdd(Context context){
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.dialog_danhgia);
@@ -148,10 +148,10 @@ public class FragmentBinhLuan extends Fragment {
                 binhLuanDTO.setBinhluan(String.valueOf(bl));
 
                 try {
-                    binhLuanDAO.insertRow(binhLuanDTO);
-                    Toast.makeText(context, "Đánh giá thành công", Toast.LENGTH_SHORT).show();
-                    loaddata();
-                    dialog.dismiss();
+//                    binhLuanDAO.insertRow(binhLuanDTO);
+//                    Toast.makeText(context, "Đánh giá thành công", Toast.LENGTH_SHORT).show();
+////                    loaddata();
+//                    dialog.dismiss();
                 } catch (Exception e) {
                     e.printStackTrace();
                     dialog.dismiss();

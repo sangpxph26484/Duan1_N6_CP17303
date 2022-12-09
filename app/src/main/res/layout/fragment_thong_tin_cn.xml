@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment_N6_CP17303.FragmentThongTinCn"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F5D9FA">
 
 
     <TextView
@@ -22,15 +23,26 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="20dp"
+        android:orientation="vertical"
         >
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/anhnen1"
-        app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
-        app:strokeColor="@color/white"
-        app:strokeWidth="1dp"
-        android:id="@+id/img_ttcn"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_baseline_person_pin_24"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/white"
+            app:strokeWidth="1dp"
+            android:id="@+id/img_ttcn"/>
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_tentaikhoan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ảnh Đại Diện"
+            android:textSize="25dp"
+            android:textColor="@color/colorActionbar" />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,14 +59,24 @@
                 android:layout_height="wrap_content"
                 android:text="Họ và tên:"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_weight="6"/>
+            <TextView
+                android:id="@+id/tv_suaten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="15dp"
+                android:text="@string/sua"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
         </LinearLayout>
@@ -68,14 +90,24 @@
                 android:layout_height="wrap_content"
                 android:text="Email:"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tv_suaemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="15dp"
+                android:text="@string/sua"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
         </LinearLayout>
@@ -88,14 +120,24 @@
                 android:layout_height="wrap_content"
                 android:text="Số điện thoại:"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_sdt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tv_suasdt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="15dp"
+                android:text="@string/sua"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
         </LinearLayout>
@@ -107,16 +149,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="Địa chỉ:"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_diachi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:padding="8dp"
-                android:textSize="20dp"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tv_suadiachi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="15dp"
+                android:text="@string/sua"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
         </LinearLayout>
@@ -124,27 +177,48 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <Button
+            android:id="@+id/btn_doimk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#F5BEFF"
+            android:text="Đổi Mật Khẩu"
+            android:textAllCaps="false"
+            android:textColor="@color/black"/>
+
         <Button
             android:id="@+id/btn_dangky_ttcn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
+            android:backgroundTint="#F5BEFF"
             android:text="Đăng ký"
-            android:layout_margin="20dp"
-            android:backgroundTint="#3A77A8"
-            />
+            android:textAllCaps="false"
+            android:textColor="@color/black"/>
+
         <Button
             android:id="@+id/btn_dangnhap_ttcn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_margin="20dp"
-            android:text="Đăng nhập "
 
-            android:backgroundTint="#3A77A8"
-            />
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#F5BEFF"
+            android:text="Đăng Nhập"
+            android:textAllCaps="false"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 </LinearLayout>

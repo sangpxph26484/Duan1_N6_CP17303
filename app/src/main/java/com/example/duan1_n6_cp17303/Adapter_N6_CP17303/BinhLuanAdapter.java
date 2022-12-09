@@ -18,10 +18,10 @@ import java.util.List;
 
 public class BinhLuanAdapter extends BaseAdapter {
     List<BinhLuanDTO> list;
-    List<TaiKhoanDTO> list1;
-    List<KhachHangDTO> list2;
+
     Context context;
-    public BinhLuanAdapter(List<BinhLuanDTO> list,Context context) {
+
+    public BinhLuanAdapter(List<BinhLuanDTO> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -48,24 +48,21 @@ public class BinhLuanAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
-        if (convertView==null){
-            view = View.inflate(parent.getContext(), R.layout.item_binhluan,null);
-        }else{
+        if (convertView == null) {
+            view = View.inflate(parent.getContext(), R.layout.item_binhluan, null);
+        } else {
             view = convertView;
         }
 
-        TextView tv_binhluan= view.findViewById(R.id.item_binhluan_tv_binhluan);
-        //TextView tv_ten = view.findViewById(R.id.item_binhluan_tv_name);
-        //ImageView img_bl = view.findViewById(R.id.item_binhluan_img);
+        TextView tv_binhluan = view.findViewById(R.id.item_binhluan_tv_binhluan);
+        TextView tv_ten = view.findViewById(R.id.item_binhluan_tv_name);
 
         BinhLuanDTO binhLuanDTO = list.get(position);
-        //KhachHangDTO khachHangDTO = list2.get(position);
-        //TaiKhoanDTO taiKhoanDTO = list1.get(position);
 
 
         tv_binhluan.setText(binhLuanDTO.getBinhluan());
-        //tv_ten.setText(khachHangDTO.getTenkhachhang());
-        //Glide.with(view.getContext()).load(Uri.parse(taiKhoanDTO.getAvatar())).into(img_bl);
+        tv_ten.setText(binhLuanDTO.getTenkhachhang());
+
 
         return view;
     }

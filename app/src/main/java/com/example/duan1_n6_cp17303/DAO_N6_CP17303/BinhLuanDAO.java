@@ -10,6 +10,7 @@ import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +18,14 @@ import java.util.List;
 public class BinhLuanDAO {
 
     Connection objConn;
-    public BinhLuanDAO(){
+
+    public BinhLuanDAO() {
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public List<BinhLuanDTO> getAll(){
+    public List<BinhLuanDTO> getAll() {
         List<BinhLuanDTO> listCat = new ArrayList<BinhLuanDTO>();
 
         try {
@@ -49,22 +51,22 @@ public class BinhLuanDAO {
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
     }
-    public void insertRow (BinhLuanDTO binhLuanDTO){
+
+    public boolean insertRow(String binhluan, int idsp, int idkh) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO BINHLUAN(BINHLUAN) VALUES (N'" + binhLuanDTO.getBinhluan() +"')";
+                String insertSQL = "INSERT INTO BINHLUAN(BINHLUAN,IDSANPHAM,IDKHACHHANG) VALUES (N'" + binhluan + "','" + idsp + "','" + idkh + "')";
 
-                String generatedColumns[] = { "ID" };
+                String generatedColumns[] = {"ID"};
 
                 PreparedStatement stmtInsert = this.objConn.prepareStatement(insertSQL, generatedColumns);
                 stmtInsert.execute();
@@ -79,19 +81,20 @@ public class BinhLuanDAO {
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
-
+            return false;
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
+            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu ");
             e.printStackTrace();
+            return true;
         }
     }
 
-    public void updateRow(BinhLuanDTO binhLuanDTO){
+    public void updateRow(BinhLuanDTO binhLuanDTO) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE BINHLUAN SET BINHLUAN= N'" + binhLuanDTO.getBinhluan()+ "'WHERE id = " + binhLuanDTO.getIdbinhluan();
+                String sqlUpdate = "UPDATE BINHLUAN SET BINHLUAN= N'" + binhLuanDTO.getBinhluan() + "'WHERE id = " + binhLuanDTO.getIdbinhluan();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -104,12 +107,12 @@ public class BinhLuanDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
             e.printStackTrace();
         }
     }
 
-    public void deleteRow(BinhLuanDTO binhLuanDTO){
+    public void deleteRow(BinhLuanDTO binhLuanDTO) {
 
         try {
             if (this.objConn != null) {
@@ -125,8 +128,44 @@ public class BinhLuanDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu ");
             e.printStackTrace();
         }
+    }
+
+    public List<BinhLuanDTO> getAll1(int idsp) {
+        List<BinhLuanDTO> listCat = new ArrayList<BinhLuanDTO>();
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select BINHLUAN.BINHLUAN,KHACHHANG.TENKHACHHANG\n" +
+                        "from BINHLUAN \n" +
+                        "inner join SANPHAM on BINHLUAN.IDSANPHAM = SANPHAM.ID \n" +
+                        "inner join KHACHHANG on BINHLUAN.IDKHACHHANG = KHACHHANG.ID where SANPHAM.ID like '"+idsp+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    BinhLuanDTO binhLuanDTO = new BinhLuanDTO();
+
+                    binhLuanDTO.setBinhluan(resultSet.getString("BINHLUAN"));
+                    binhLuanDTO.setTenkhachhang(resultSet.getString("TENKHACHHANG"));
+
+
+                    listCat.add(binhLuanDTO);
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return listCat;
     }
 }

@@ -65,7 +65,6 @@ public class FragmentMenu extends Fragment {
     public void showdata(){
         dao = new SanPhamDAO();
         adapter = new SanPhamAdapter(dao.getAll(), getContext());
-
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
