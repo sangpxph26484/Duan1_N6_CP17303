@@ -16,7 +16,9 @@
         app:iss_title_background="@drawable/gradient"
         />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
         android:layout_margin="5dp"
         android:id="@+id/rcv_pro"
         android:layout_width="match_parent"

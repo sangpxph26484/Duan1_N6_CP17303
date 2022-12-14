@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@drawable/bgr">
+    android:background="@drawable/bgrdky1">
 
 
 <LinearLayout
@@ -19,13 +19,6 @@
         android:src="@drawable/ic_backdky"
         android:padding="10dp"
         />
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:src="@drawable/img"
-        android:layout_marginRight="45dp"
-        />
 </LinearLayout>
 
     <TextView
@@ -35,15 +28,18 @@
         android:gravity="center"
         android:textSize="40dp"
         android:textStyle="bold"
-        android:textColor="#FF7A22"
+        android:textColor="@color/white"
         android:layout_marginBottom="15dp"
         />
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/white"
         android:id="@+id/login_tilTaiKhoan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:hint="Tên Tài Khoản"
+        android:textColorHint="#9EFFFFFF"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +59,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/white"
+        android:textColorHint="#9EFFFFFF"
         android:id="@+id/login_tilpassword1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,6 +85,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/white"
+        android:textColorHint="#9EFFFFFF"
         android:id="@+id/login_tilpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -114,8 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/bo_tron_1"
-        android:backgroundTint="#31BAF8"
+        android:backgroundTint="#3C4A9A"
         android:text="Đăng ký"
         />
 </LinearLayout>
