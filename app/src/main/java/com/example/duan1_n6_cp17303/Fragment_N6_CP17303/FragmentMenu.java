@@ -10,6 +10,7 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -30,7 +31,7 @@ public class FragmentMenu extends Fragment {
         return fragment;
     }
 
-    ListView lv;
+    RecyclerView rcv;
     SanPhamAdapter adapter;
     SanPhamDAO dao;
     ImageSlider imageSlider;
@@ -38,7 +39,7 @@ public class FragmentMenu extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
-        lv = view.findViewById(R.id.rcv_pro);
+        rcv = view.findViewById(R.id.rcv_pro);
         imageSlider= view.findViewById(R.id.image_slider);
 
         ArrayList<SlideModel> slideModels =new ArrayList<>();
@@ -65,7 +66,7 @@ public class FragmentMenu extends Fragment {
     public void showdata(){
         dao = new SanPhamDAO();
         adapter = new SanPhamAdapter(dao.getAll(), getContext());
-        lv.setAdapter(adapter);
+        rcv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 }

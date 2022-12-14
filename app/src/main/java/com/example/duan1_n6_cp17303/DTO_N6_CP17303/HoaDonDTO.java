@@ -5,6 +5,15 @@ public class HoaDonDTO {
     String ngaymua;
     String trangthai;
     int idkhachhang;
+    String anhsanpham;
+
+    public String getAnhsanpham() {
+        return anhsanpham;
+    }
+
+    public void setAnhsanpham(String anhsanpham) {
+        this.anhsanpham = anhsanpham;
+    }
 
     public int getIdhoadon() {
         return idhoadon;

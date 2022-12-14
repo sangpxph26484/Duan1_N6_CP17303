@@ -36,7 +36,7 @@ import java.util.function.LongToDoubleFunction;
 
 public class SanPhamActivity extends AppCompatActivity {
     TextView tensp, giasp, mota, txtsoluongsp;
-    Button btnthem, btnbotsp, btnthemsp;
+    Button btnthem, btnbotsp, btnthemsp, btnmuangay;
     ImageView imgsanpham, imgback;
     SanPhamDAO dao;
     int count = 0;
@@ -73,6 +73,8 @@ public class SanPhamActivity extends AppCompatActivity {
         txtsoluongsp.setText("1");
         btnbotsp = findViewById(R.id.btnBotsanpham);
         btnthemsp = findViewById(R.id.btnThemsanpham);
+
+        btnmuangay = findViewById(R.id.btnMuangay);
 
         btnthem = findViewById(R.id.btnThemvaogiohang);
         SharedPreferences sharedPreferences = this.getSharedPreferences("Login", this.MODE_PRIVATE);

@@ -37,19 +37,11 @@
             android:padding="8dp"
             android:layout_marginLeft="10dp"
             android:gravity="center"/>
-        <ImageView
-            android:id="@+id/imggiohang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:padding="8dp"
-            android:src="@drawable/ic_giohang"
-            android:layout_marginRight="10dp"
-            />
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         >
@@ -124,12 +116,30 @@
                     android:textStyle="bold"
                     />
             </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
             <Button
                 android:id="@+id/btnThemvaogiohang"
                 android:textColor="@color/white"
                 android:text="Thêm vào giỏ hàng"
-                android:layout_width="match_parent"
+                android:textSize="8sp"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnMuangay"
+                android:layout_marginLeft="9dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mua ngay"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+</LinearLayout>
         </LinearLayout>
 
 
