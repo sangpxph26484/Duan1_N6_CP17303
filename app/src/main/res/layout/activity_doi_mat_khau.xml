@@ -29,12 +29,12 @@
         android:gravity="center"
         android:textSize="40dp"
         android:textStyle="bold"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_marginBottom="15dp"
         />
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="#9EFFFFFF"
+        android:textColorHint="#9E000000"
         app:boxStrokeColor="@color/white"
         android:id="@+id/login_tilTaiKhoan"
         android:layout_width="match_parent"
@@ -61,7 +61,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="#9EFFFFFF"
+        android:textColorHint="#9E000000"
         app:boxStrokeColor="@color/white"
         android:id="@+id/login_tilpassword1"
         android:layout_width="match_parent"
@@ -87,7 +87,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:textColorHint="#9EFFFFFF"
+        android:textColorHint="#9E000000"
         app:boxStrokeColor="@color/white"
         android:id="@+id/login_tilpassword"
         android:layout_width="match_parent"
