@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentManager fragmentManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

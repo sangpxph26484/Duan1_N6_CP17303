@@ -22,13 +22,13 @@ public class GioHangDAO {
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public List<GioHangDTO> getAll(){
+    public List<GioHangDTO> getAll(String user){
         List<GioHangDTO> listCat = new ArrayList<GioHangDTO>();
 
         try {
             if (this.objConn != null) {
 
-                String sqlQuery = "SELECT * FROM GIOHANG ";
+                String sqlQuery = "SELECT GIOHANG.ID,GIOHANG.ANHSANPHAM,GIOHANG.SOLUONG,GIOHANG.GIATIEN,GIOHANG.TENSANPHAM FROM GIOHANG inner join KHACHHANG on GIOHANG.IDKHACHHANG = KHACHHANG.id where KHACHHANG.USERNAME like '"+user+"' ";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
@@ -42,7 +42,6 @@ public class GioHangDAO {
                     gioHangDTO.setGiatien(resultSet.getFloat("GIATIEN"));
                     gioHangDTO.setSoluong(resultSet.getInt("SOLUONG"));
                     gioHangDTO.setAnhsanpham(resultSet.getString("ANHSANPHAM"));
-                    gioHangDTO.setIdkhachhang(resultSet.getInt("IDKHACHHANG"));
 
 
 
@@ -109,12 +108,12 @@ public class GioHangDAO {
             e.printStackTrace();
         }
     }
-    public int getTongTien() {
+    public int getTongTien(String user) {
         int tongtien = 0;
         try {
             if (this.objConn != null) {
 
-                String sql = "select SUM(GIATIEN*SOLUONG) as 'tongtien' from GIOHANG";
+                String sql = "select SUM(GIATIEN*SOLUONG) as 'tongtien' from GIOHANG inner join KHACHHANG on GIOHANG.IDKHACHHANG = KHACHHANG.id where KHACHHANG.USERNAME like '"+user+"'";
 
                 Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 

@@ -18,6 +18,7 @@ import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentHoaDon;
 import com.example.duan1_n6_cp17303.R;
 import com.example.duan1_n6_cp17303.SanPhamActivity;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class HoaDonAdapter extends BaseAdapter {
@@ -56,18 +57,22 @@ public class HoaDonAdapter extends BaseAdapter {
         }else{
             view = convertView;
         }
-        ImageView imgItemsp = view.findViewById(R.id.item_hoadon_img);
-        TextView tvItemtenkh = view.findViewById(R.id.tv_item_hoadon_tenkh);
-        TextView tvItemtensp = view.findViewById(R.id.tv_item_hoadon_sp);
-        TextView tvItemsoluong = view.findViewById(R.id.tv_item_hoadon_sl);
-        TextView tvItemtongtien = view.findViewById(R.id.tv_item_hoadon_tongtien);
-        TextView tvItemtrangthai = view.findViewById(R.id.tv_item_hoadon_trangthai);
+        TextView tv_tenkh = view.findViewById(R.id.tv_tenkh);
+        TextView tv_tensp = view.findViewById(R.id.tv_tensp);
+        TextView tv_soluong = view.findViewById(R.id.tv_soluongsp);
+        TextView tv_tongtien = view.findViewById(R.id.tv_tongtien);
+        TextView tv_trangthai = view.findViewById(R.id.tv_trangthai);
+        TextView tv_date = view.findViewById(R.id.tv_date);
 
-//        HoaDonDTO hoaDonDTO =list.get(position);
-//        Glide.with(view.getContext()).load(Uri.parse(hoaDonDTO.getAnhsanpham())).into(imgItemsp);
-//        tvItemtenkh.setText( hoaDonDTO.getIdkhachhang());
-//        tvItemtensp.setText( hoaDonDTO.get()+"đ");
-//        txtItemthongtinsp.setText (hoaDonDTO.getThongtin());
+        HoaDonDTO hoaDonDTO =list.get(position);
+
+        tv_tenkh.setText( "Tên Khách Hàng: "+hoaDonDTO.getTenkhachhang());
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+
+        tv_tongtien.setText(decimalFormat.format(hoaDonDTO.getTongtien()) +"đ");
+        tv_soluong.setText("Số Lượng: "+hoaDonDTO.getSoluong());
+        tv_trangthai.setText("Trạng Thái Đơn: "+hoaDonDTO.getTrangthai());
+        tv_date.setText(hoaDonDTO.getNgaymua());
 
 
         return view;
