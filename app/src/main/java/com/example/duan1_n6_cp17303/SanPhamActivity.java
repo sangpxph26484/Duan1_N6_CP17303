@@ -1,13 +1,11 @@
 package com.example.duan1_n6_cp17303;
 
-import androidx.annotation.LongDef;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,22 +15,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.example.duan1_n6_cp17303.Adapter_N6_CP17303.BinhLuanAdapter;
 import com.example.duan1_n6_cp17303.DAO_N6_CP17303.BinhLuanDAO;
+import com.example.duan1_n6_cp17303.DAO_N6_CP17303.CTHDDAO;
 import com.example.duan1_n6_cp17303.DAO_N6_CP17303.GioHangDAO;
+import com.example.duan1_n6_cp17303.DAO_N6_CP17303.HoaDonDAO;
 import com.example.duan1_n6_cp17303.DAO_N6_CP17303.KhachHangDAO;
 import com.example.duan1_n6_cp17303.DAO_N6_CP17303.SanPhamDAO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.BinhLuanDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.GioHangDTO;
+import com.example.duan1_n6_cp17303.DTO_N6_CP17303.HoaDonDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.SanPhamDTO;
-import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentGioHang;
 
-import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.LongToDoubleFunction;
 
 public class SanPhamActivity extends AppCompatActivity {
     TextView tensp, giasp, mota, txtsoluongsp;
@@ -81,16 +81,6 @@ public class SanPhamActivity extends AppCompatActivity {
         String u = sharedPreferences.getString("name", "");
         Log.e("u", u);
 
-//==========
-//
-//        try {
-//            binhLuanDAO = new BinhLuanDAO();
-//            list = binhLuanDAO.getAll(Integer.parseInt(id_sanpham));
-//            binhLuanAdapter = new BinhLuanAdapter(list,this);
-//            lv_binhluan.setAdapter(binhLuanAdapter);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
 
         showdatabinhluan();
 
@@ -139,7 +129,6 @@ public class SanPhamActivity extends AppCompatActivity {
         });
 
 
-
         dao = new SanPhamDAO();
         sanPhamDTO = (SanPhamDTO) getIntent().getSerializableExtra("chitiet");
 
@@ -148,7 +137,7 @@ public class SanPhamActivity extends AppCompatActivity {
 
         Glide.with(this).load(sanPhamDTO.getAnhsanpham()).into(imgsanpham);
         tensp.setText("Tên Sản Phẩm: " + sanPhamDTO.getTensanpham());
-        giasp.setText("Giá: " + decimalFormat.format(sanPhamDTO.getGiatien()));
+        giasp.setText(String.valueOf(sanPhamDTO.getGiatien()));
         mota.setText(sanPhamDTO.getThongtin());
 
 
@@ -162,13 +151,16 @@ public class SanPhamActivity extends AppCompatActivity {
                 tensp1 = tensp.getText().toString();
                 soluong1 = txtsoluongsp.getText().toString();
                 anh1 = sanPhamDTO.getAnhsanpham();
+
                 gioHangDTO1.setTensanpham(tensp1);
                 gioHangDTO1.setGiatien(sanPhamDTO.getGiatien());
                 gioHangDTO1.setSoluong(Integer.parseInt(soluong1));
                 gioHangDTO1.setAnhsanpham(anh1);
 
+
                 SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Login", MODE_PRIVATE);
                 String u = sharedPreferences.getString("name", "");
+
                 if (u.equals("")) {
                     Toast.makeText(SanPhamActivity.this, "Bạn Cần Phải Đăng Nhập", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getBaseContext(), DangNhapActivity.class);
@@ -182,6 +174,85 @@ public class SanPhamActivity extends AppCompatActivity {
                         Toast.makeText(SanPhamActivity.this, "Thêm không thành công", Toast.LENGTH_SHORT).show();
                     }
                 }
+
+            }
+        });
+
+        KhachHangDAO khachHangDAO = new KhachHangDAO();
+
+        btnmuangay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences1 = getBaseContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+                String user = sharedPreferences1.getString("key_TK1", "");
+                SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Login", MODE_PRIVATE);
+                String u = sharedPreferences.getString("name", "");
+
+                if (u.equals("")) {
+                    Toast.makeText(SanPhamActivity.this, "Bạn Cần Phải Đăng Nhập", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getBaseContext(), DangNhapActivity.class);
+                    startActivity(intent);
+
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SanPhamActivity.this);
+                    builder.setTitle("Bạn có chắc muốn đặt hàng đến địa chỉ " + khachHangDAO.getDiachiByUser(user) + "?");
+                    builder.setPositiveButton("Đặt Hàng", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            HoaDonDTO hoaDonDTO = new HoaDonDTO();
+                            HoaDonDAO hoaDonDAO = new HoaDonDAO();
+
+                            CTHDDAO cthddao = new CTHDDAO();
+
+                            SharedPreferences sharedPreferences1 = getBaseContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+                            int idsp = sharedPreferences1.getInt("key_SP", 0);
+
+                            int getidKh = khachHangDAO.getidKh(user);
+
+
+                            String anh1, tongTien, soLuong, tenkh;
+                            anh1 = sanPhamDTO.getAnhsanpham();
+                            tongTien = giasp.getText().toString();
+                            soLuong = txtsoluongsp.getText().toString();
+                            tenkh = String.valueOf(khachHangDAO.getTenByUser(user));
+
+                            hoaDonDTO.setSoluong(Integer.parseInt(soLuong));
+
+                            hoaDonDTO.setTenkhachhang(tenkh);
+
+                            if (hoaDonDAO.insertRow(getidKh) == true) {
+
+                                Handler handler = new Handler();
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        int idhoadon = hoaDonDAO.getidhoadon();
+                                        if (cthddao.insertRow(hoaDonDTO, idsp,idhoadon,tongTien) == true) {
+                                            Toast.makeText(SanPhamActivity.this, "Đặt Hàng Thành Công", Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(SanPhamActivity.this, "Có Lỗi Khi Đặt Hàng", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }, 2000);
+
+
+                            } else {
+                                Toast.makeText(SanPhamActivity.this, "Có lỗi Khi đặt hàng", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }
+
 
             }
         });
@@ -210,13 +281,13 @@ public class SanPhamActivity extends AppCompatActivity {
         count++;
         txtsoluongsp.setText("" + count);
 
-        giasp.setText("Giá: " + sanPhamDTO.getGiatien() * count + "");
+        giasp.setText(sanPhamDTO.getGiatien() * count + "");
     }
 
     public void decrement(View view) {
         if (count <= 0) count = 0;
         else count--;
         txtsoluongsp.setText("" + count);
-        giasp.setText("Giá: " + sanPhamDTO.getGiatien() * count + "");
+        giasp.setText(sanPhamDTO.getGiatien() * count + "");
     }
 }

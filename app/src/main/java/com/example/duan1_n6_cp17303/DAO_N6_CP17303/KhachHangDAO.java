@@ -368,4 +368,62 @@ public class KhachHangDAO {
             return false;
         }
     }
+
+    public String getDiachiByUser(String user){
+        String diachi = null;
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select DIACHI from KHACHHANG where USERNAME = '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) {
+                    diachi = resultSet.getString("DIACHI");
+                }
+            }
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return  diachi;
+
+
+    }
+
+    public int getidByUser(String user){
+        int id = 0;
+
+        try {
+            if (this.objConn != null) {
+
+                String sqlQuery = "select ID from KHACHHANG where USERNAME = '"+user+"'";
+
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
+
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+
+                while (resultSet.next()) {
+
+                    id = resultSet.getInt("ID");
+                }
+            }
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
+            e.printStackTrace();
+        }
+
+        return  id;
+
+
+    }
+
 }

@@ -5,7 +5,21 @@ public class HoaDonDTO {
     String ngaymua;
     String trangthai;
     int idkhachhang;
+
     String anhsanpham;
+    String tenkhachhang;
+    int soluong;
+    float tongtien;
+    String tensp;
+
+
+    public String getTensp() {
+        return tensp;
+    }
+
+    public void setTensp(String tensp) {
+        this.tensp = tensp;
+    }
 
     public String getAnhsanpham() {
         return anhsanpham;
@@ -45,6 +59,30 @@ public class HoaDonDTO {
 
     public void setIdkhachhang(int idkhachhang) {
         this.idkhachhang = idkhachhang;
+    }
+
+    public String getTenkhachhang() {
+        return tenkhachhang;
+    }
+
+    public void setTenkhachhang(String tenkhachhang) {
+        this.tenkhachhang = tenkhachhang;
+    }
+
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    public float getTongtien() {
+        return tongtien;
+    }
+
+    public void setTongtien(float tongtien) {
+        this.tongtien = tongtien;
     }
 
     public HoaDonDTO() {
