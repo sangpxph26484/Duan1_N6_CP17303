@@ -112,12 +112,12 @@ public class BinhLuanDAO {
         }
     }
 
-    public void deleteRow(BinhLuanDTO binhLuanDTO) {
+    public void deleteRow(int id ){
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "DELETE FROM BINHLUAN WHERE id = " + binhLuanDTO.getIdbinhluan();
+                String sqlUpdate = "DELETE FROM BINHLUAN WHERE id = " + id;
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
                 stmt.execute(); // thực thi câu lệnh SQL
@@ -128,7 +128,7 @@ public class BinhLuanDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu ");
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi xóa dữ liệu " );
             e.printStackTrace();
         }
     }

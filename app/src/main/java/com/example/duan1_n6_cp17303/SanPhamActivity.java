@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -146,16 +147,25 @@ public class SanPhamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 GioHangDAO gioHangDAO1 = new GioHangDAO();
                 GioHangDTO gioHangDTO1 = new GioHangDTO();
-
-                String tensp1, soluong1, anh1;
+                KhachHangDAO khachHangDAO = new KhachHangDAO();
+                String tensp1, soluong1, anh1,idkh;
                 tensp1 = tensp.getText().toString();
                 soluong1 = txtsoluongsp.getText().toString();
                 anh1 = sanPhamDTO.getAnhsanpham();
+                idkh = String.valueOf(gioHangDTO1.getIdkhachhang());
+
+                SharedPreferences sharedPreferences1 = getBaseContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+                String user = sharedPreferences1.getString("key_TK1", "");
+                khachHangDAO.getidByUser(user);
+
+                int id = khachHangDAO.getidByUser(user);
 
                 gioHangDTO1.setTensanpham(tensp1);
                 gioHangDTO1.setGiatien(sanPhamDTO.getGiatien());
                 gioHangDTO1.setSoluong(Integer.parseInt(soluong1));
                 gioHangDTO1.setAnhsanpham(anh1);
+                gioHangDTO1.setIdkhachhang(id);
+
 
 
                 SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Login", MODE_PRIVATE);
@@ -265,7 +275,44 @@ public class SanPhamActivity extends AppCompatActivity {
             }
         });
 
+        lv_binhluan.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(SanPhamActivity.this);
+
+                builder.setTitle("Xóa Sản Phẩm");
+                builder.setMessage("Bạn có chắc chắn muốn xóa không");
+
+                builder.setPositiveButton("Đồng Ý", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            list = binhLuanDAO.getAll();
+                            BinhLuanDTO binhLuanDTO = list.get(position);
+                            binhLuanDAO.deleteRow(binhLuanDTO.getIdbinhluan());
+                            Toast.makeText(SanPhamActivity.this, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
+                            showdatabinhluan();
+                            dialog.dismiss();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            dialog.dismiss();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return false;
+            }
+        });
     }
 
     private void showdatabinhluan() {

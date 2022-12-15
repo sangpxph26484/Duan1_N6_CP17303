@@ -20,7 +20,7 @@ import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentHoaDon;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentGioHang;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentMenu;
-import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThem;
+//import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThem;
 import com.example.duan1_n6_cp17303.Fragment_N6_CP17303.FragmentThongTinCn;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;

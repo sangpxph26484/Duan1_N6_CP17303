@@ -37,6 +37,7 @@ public class DoiMatKhauActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
         SharedPreferences sharedPreferences = getBaseContext().getSharedPreferences("Mypref", MODE_PRIVATE);
         String user = sharedPreferences.getString("key_TK1","");
         btn_dmk.setOnClickListener(new View.OnClickListener() {
