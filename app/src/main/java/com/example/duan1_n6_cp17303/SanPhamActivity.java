@@ -50,7 +50,6 @@ public class SanPhamActivity extends AppCompatActivity {
     BinhLuanDTO binhLuanDTO;
     List<BinhLuanDTO> list = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
