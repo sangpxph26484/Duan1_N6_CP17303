@@ -44,13 +44,13 @@ public class FragmentMenu extends Fragment {
 
         ArrayList<SlideModel> slideModels =new ArrayList<>();
 
-        slideModels.add(new SlideModel("https://iili.io/HfgrBKx.jpg","tui1", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://iili.io/HfgrCcQ.jpg","tui2", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://iili.io/HfgrfPj.jpg","tui3", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://iili.io/HfgrKMb.jpg","tui4", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://iili.io/HfgrxHB.jpg","tui5", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://iili.io/HfgrzAP.jpg","tui6", ScaleTypes.FIT));
-        slideModels.add(new SlideModel("https://iili.io/HfgrKMb.jpg","tui7", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://iili.io/HfgrBKx.jpg","Túi LV", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://iili.io/HfgrCcQ.jpg","Túi Channel ", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://iili.io/HfgrfPj.jpg","Túi Lacoste", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://iili.io/HfgrKMb.jpg","Túi Gucci", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://iili.io/HfgrxHB.jpg","Túi MLB", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://iili.io/HfgrzAP.jpg","Túi Zara", ScaleTypes.FIT));
+        slideModels.add(new SlideModel("https://iili.io/HfgrKMb.jpg","Túi Dior", ScaleTypes.FIT));
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
         return view;

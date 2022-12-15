@@ -4,8 +4,7 @@ import android.util.Log;
 
 import com.example.duan1_n6_cp17303.DBHelper_N6_CP17303.MyDBHelper;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.CTHDDTO;
-import com.example.duan1_n6_cp17303.DTO_N6_CP17303.KhachHangDTO;
-
+import com.example.duan1_n6_cp17303.DTO_N6_CP17303.HoaDonDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,13 +16,14 @@ import java.util.List;
 public class CTHDDAO {
 
     Connection objConn;
-    public CTHDDAO(){
+
+    public CTHDDAO() {
         // hàm khởi tạo để mở kết nối
         MyDBHelper db = new MyDBHelper();
         objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
 
-    public List<CTHDDTO> getAll(){
+    public List<CTHDDTO> getAll() {
         List<CTHDDTO> listCat = new ArrayList<CTHDDTO>();
 
         try {
@@ -45,28 +45,27 @@ public class CTHDDAO {
                     cthddto.setTongtien(resultSet.getFloat("TONGTIEN"));
 
 
-
                     listCat.add(cthddto);
                 }
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
 
-
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu ");
             e.printStackTrace();
         }
 
-        return  listCat;
+        return listCat;
     }
-    public void insertRow (CTHDDTO cthddto){
+
+    public boolean insertRow(HoaDonDTO hoaDonDTO,int idsp,int idhoadon,String tongtien) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO CHITIETHOADON(TENKHACHHANG,SOLUONG,TONGTIEN) VALUES (N'" + cthddto.getTenkhachhang() + "',N'"+cthddto.getSoluong()+"','"+cthddto.getTongtien()+"')";
+                String insertSQL = "INSERT INTO CHITIETHOADON(TENKHACHHANG,SOLUONG,TONGTIEN,IDHOADON,IDSANPHAM) VALUES (N'" + hoaDonDTO.getTenkhachhang() + "',N'" + hoaDonDTO.getSoluong() + "'," + tongtien + ",'" + idhoadon + "','" + idsp + "')";
 
-                String generatedColumns[] = { "ID" };
+                String generatedColumns[] = {"ID"};
 
                 PreparedStatement stmtInsert = this.objConn.prepareStatement(insertSQL, generatedColumns);
                 stmtInsert.execute();
@@ -81,19 +80,20 @@ public class CTHDDAO {
 
             } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
 
-
+            return true;
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu " );
+            Log.e("zzzzzzzzzz", "insertRow: Có lỗi thêm dữ liệu ");
             e.printStackTrace();
+            return false;
         }
     }
 
-    public void updateRow(CTHDDTO cthddto){
+    public void updateRow(CTHDDTO cthddto) {
 
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String sqlUpdate = "UPDATE CHITIETHOADON SET name= N'" + cthddto.getTenkhachhang()+"',N'"+ cthddto.getSoluong()+"','"+ cthddto.getTongtien()+ "'WHERE id = " + cthddto.getIdhoadon();
+                String sqlUpdate = "UPDATE CHITIETHOADON SET name= N'" + cthddto.getTenkhachhang() + "',N'" + cthddto.getSoluong() + "','" + cthddto.getTongtien() + "'WHERE id = " + cthddto.getIdhoadon();
 
 
                 PreparedStatement stmt = this.objConn.prepareStatement(sqlUpdate);
@@ -106,7 +106,7 @@ public class CTHDDAO {
 
 
         } catch (Exception e) {
-            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu " );
+            Log.e("zzzzzzzzzz", "updateRow: Có lỗi sửa dữ liệu ");
             e.printStackTrace();
         }
     }

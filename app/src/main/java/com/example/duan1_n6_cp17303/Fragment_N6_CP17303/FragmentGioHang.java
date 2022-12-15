@@ -1,7 +1,10 @@
 package com.example.duan1_n6_cp17303.Fragment_N6_CP17303;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -51,11 +54,12 @@ public class FragmentGioHang extends Fragment {
         View view = inflater.inflate(R.layout.fragment_gio_hang, container, false);
         TextView tv_giatiengiohang = view.findViewById(R.id.tv_giatiengiohang);
 
-
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+        String user = sharedPreferences.getString("key_TK1","");
 
         lv = view.findViewById(R.id.lv_giohang);
         dao = new GioHangDAO();
-        int a = dao.getTongTien();
+        int a = dao.getTongTien(user);
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         tv_giatiengiohang.setText(decimalFormat.format(a)+"đ");
 
@@ -81,11 +85,13 @@ public class FragmentGioHang extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try {
-                            list = dao.getAll();
+                            SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+                            String user = sharedPreferences.getString("key_TK1","");
+                            list = dao.getAll(user);
                             GioHangDTO gioHangDTO1 = list.get(position);
                             dao.deleteRow(gioHangDTO1.getIdgiohang());
                             Toast.makeText(getContext(), "Xóa Thành Công", Toast.LENGTH_SHORT).show();
-                            loaddata();
+                            showdata();
                             dialog.dismiss();
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -113,21 +119,15 @@ public class FragmentGioHang extends Fragment {
         });
     }
     public void showdata(){
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
+        String user = sharedPreferences.getString("key_TK1","");
         dao = new GioHangDAO();
-        adapter = new GioHangAdapter(  dao.getAll(),getContext());
+        adapter = new GioHangAdapter(  dao.getAll(user),getContext());
 
         lv.setAdapter( adapter);
         adapter.notifyDataSetChanged();
-        Log.d("binhdz11", "showdata: " + dao.getAll().size());
     }
-    public void loaddata() {
 
-        list = dao.getAll();
-        adapter = new GioHangAdapter(dao.getAll(), getContext());
-        lv.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-
-    }
 
 
 
