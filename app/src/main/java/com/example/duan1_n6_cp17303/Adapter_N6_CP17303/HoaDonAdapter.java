@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.bumptech.glide.Glide;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.CTHDDTO;
 import com.example.duan1_n6_cp17303.DTO_N6_CP17303.GioHangDTO;
@@ -66,12 +68,19 @@ public class HoaDonAdapter extends BaseAdapter {
 
         HoaDonDTO hoaDonDTO =list.get(position);
 
+
+        if (hoaDonDTO.getTrangthai().equals("Chưa Giao")){
+            tv_trangthai.setTextColor(ContextCompat.getColor(context,R.color.red));
+        }else {
+            tv_trangthai.setTextColor(ContextCompat.getColor(context,R.color.green));
+        }
+
         tv_tenkh.setText( "Tên Khách Hàng: "+hoaDonDTO.getTenkhachhang());
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-
-        tv_tongtien.setText(decimalFormat.format(hoaDonDTO.getTongtien()) +"đ");
+        tv_tensp.setText("Tên Sản Phẩm: "+hoaDonDTO.getTensp());
+        tv_tongtien.setText("Tổng: "+decimalFormat.format(hoaDonDTO.getTongtien()) +"đ");
         tv_soluong.setText("Số Lượng: "+hoaDonDTO.getSoluong());
-        tv_trangthai.setText("Trạng Thái Đơn: "+hoaDonDTO.getTrangthai());
+        tv_trangthai.setText(hoaDonDTO.getTrangthai());
         tv_date.setText(hoaDonDTO.getNgaymua());
 
 

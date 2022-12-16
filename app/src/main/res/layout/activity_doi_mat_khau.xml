@@ -10,15 +10,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <ImageView
-            android:layout_marginTop="4dp"
             android:id="@+id/imgBackdmk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_backdky"
+            android:layout_marginTop="4dp"
             android:padding="10dp"
-            />
+            android:src="@drawable/ic_backdky" />
 
     </LinearLayout>
 

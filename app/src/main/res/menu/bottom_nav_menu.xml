@@ -9,8 +9,8 @@
         android:icon="@drawable/ic_baseline_assignment_ind_24"
         />
 
-    <item android:title="Giỏ Hàng" android:id="@+id/nav_giohang"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"
+    <item android:title="Yêu Thích" android:id="@+id/nav_giohang"
+        android:icon="@drawable/ic_baseline_heart_broken_24"
         />
     <item android:title="Đơn Hàng" android:id="@+id/nav_donhang"
         android:icon="@drawable/ic_baseline_list_alt_24"

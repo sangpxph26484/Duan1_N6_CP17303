@@ -63,7 +63,7 @@ public class GioHangDAO {
         try {
             if (this.objConn != null) {
                 // ghép chuỗi SQL
-                String insertSQL = "INSERT INTO GIOHANG(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM) VALUES (N'" +gioHangDTO.getTensanpham() + "','"+gioHangDTO.getGiatien()+"','"+gioHangDTO.getSoluong()+"','"+gioHangDTO.getAnhsanpham()+"')";
+                String insertSQL = "INSERT INTO GIOHANG(TENSANPHAM,GIATIEN,SOLUONG,ANHSANPHAM,IDKHACHHANG) VALUES (N'" +gioHangDTO.getTensanpham() + "','"+gioHangDTO.getGiatien()+"','"+gioHangDTO.getSoluong()+"','"+gioHangDTO.getAnhsanpham()+"','"+gioHangDTO.getIdkhachhang()+"')";
 
                 String generatedColumns[] = { "ID" };
 

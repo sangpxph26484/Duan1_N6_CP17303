@@ -52,7 +52,7 @@ public class FragmentGioHang extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_gio_hang, container, false);
-        TextView tv_giatiengiohang = view.findViewById(R.id.tv_giatiengiohang);
+//        TextView tv_giatiengiohang = view.findViewById(R.id.tv_giatiengiohang);
 
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
         String user = sharedPreferences.getString("key_TK1","");
@@ -60,8 +60,8 @@ public class FragmentGioHang extends Fragment {
         lv = view.findViewById(R.id.lv_giohang);
         dao = new GioHangDAO();
         int a = dao.getTongTien(user);
-        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        tv_giatiengiohang.setText(decimalFormat.format(a)+"đ");
+        //      DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        //       tv_giatiengiohang.setText(decimalFormat.format(a)+"đ");
 
         return view;
     }
@@ -70,7 +70,7 @@ public class FragmentGioHang extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         showdata();
         tvgasp = view.findViewById(R.id.item_giohang_gia);
-        btndathang = view.findViewById(R.id.btn_dathang);
+ //       btndathang = view.findViewById(R.id.btn_dathang);
         tvsoluongsp = view.findViewById(R.id.item_giohang_soluong);
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -111,19 +111,18 @@ public class FragmentGioHang extends Fragment {
             }
         });
 
-        btndathang.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        btndathang.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
     }
     public void showdata(){
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("Mypref", MODE_PRIVATE);
         String user = sharedPreferences.getString("key_TK1","");
         dao = new GioHangDAO();
         adapter = new GioHangAdapter(  dao.getAll(user),getContext());
-
         lv.setAdapter( adapter);
         adapter.notifyDataSetChanged();
     }

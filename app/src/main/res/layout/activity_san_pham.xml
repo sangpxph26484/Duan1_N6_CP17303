@@ -140,9 +140,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Thêm vào giỏ hàng"
+                    android:text="YÊU THÍCH"
                     android:textColor="@color/white"
-                    android:textSize="8sp" />
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/btnMuangay"

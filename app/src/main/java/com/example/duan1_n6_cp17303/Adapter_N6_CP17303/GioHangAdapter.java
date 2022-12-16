@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class GioHangAdapter extends BaseAdapter {
     List<GioHangDTO> list;
     Context context;
     int count = 0;
+    boolean bulkflag = false;
     public GioHangAdapter(List<GioHangDTO> list, Context context) {
         this.list = list;
         this.context = context;
@@ -65,6 +67,7 @@ public class GioHangAdapter extends BaseAdapter {
         TextView txtItemgiaspgiohang = view.findViewById(R.id.item_giohang_gia);
         TextView txtItemsoluongspgiohang = view.findViewById(R.id.item_giohang_soluong);
 
+
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         GioHangDTO gioHangDTO =list.get(position);
         Glide.with(view.getContext()).load(Uri.parse(gioHangDTO.getAnhsanpham())).into(imgItemimggiohang);
@@ -73,6 +76,12 @@ public class GioHangAdapter extends BaseAdapter {
         txtItemsoluongspgiohang.setText(gioHangDTO.getSoluong()+"");
 
         count = Integer.parseInt(txtItemsoluongspgiohang.getText().toString());
+
+        if(bulkflag){
+//            cbo.setVisibility(View.VISIBLE);
+        }else {
+//            cbo.setVisibility(View.GONE);
+        }
 
         return view;
     }
