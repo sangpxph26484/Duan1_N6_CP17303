@@ -117,10 +117,9 @@ public class SanPhamActivity extends AppCompatActivity {
                     binhLuanDAO = new BinhLuanDAO();
 
                     if (binhLuanDAO.insertRow(ed_binhluan.getText().toString(), idsp, idkh) == false) {
-                        Toast.makeText(getBaseContext(), "Them thanh cong", Toast.LENGTH_SHORT).show();
                         showdatabinhluan();
                     } else {
-                        Toast.makeText(SanPhamActivity.this, "Bình Luận Thất Bại", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SanPhamActivity.this, "Có lỗi khi bình luận", Toast.LENGTH_SHORT).show();
                     }
 
 
