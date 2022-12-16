@@ -12,4 +12,6 @@
     <color name="colorbackgounditem">#C9BB8AF1</color>
     <color name="texview">#CCC</color>
     <color name="gia">#EC0D0D</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#009706</color>
 </resources>
